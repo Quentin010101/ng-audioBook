@@ -1,0 +1,15 @@
+<ng-container *ngIf="form">
+  <form [formGroup]="form">
+    <div>
+      <label for="email">Email</label>
+      <input type="text" formControlName="email">
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" formControlName="password">
+    </div>
+    <div>
+      <button (click)="login()">Log in</button>
+    </div>
+  </form>
+</ng-container>
