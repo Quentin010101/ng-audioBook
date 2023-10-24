@@ -10,53 +10,33 @@ import { environment } from 'src/environment';
 export class AudioComponent implements AfterViewInit{
   @Input() audioBook!: AudioBook;
   @ViewChild("player") playerRef!: ElementRef
-  @ViewChild("progress") progressRef!: ElementRef
   @ViewChild("btn") buttonRef!: ElementRef
+
   player!: HTMLMediaElement
   progress!: HTMLElement
   isPlaying: boolean = false
-  currentTime: number = 0
-  rangeValue: number = 0
-
   audioInit: boolean = false
-  updateRange: boolean = true
+  timePassed: number = 0
+  duration!: number 
 
-  // Timer
-
-  // Display
-  currentTimeDisplay: string = ''
-  durationDisplay: string = ''
-  
   // conf
   forwardValue: number = 10
 
   ngAfterViewInit(): void {
-    this.playerRef.nativeElement.setAttribute("src", environment.apiUrl + '/file/' + this.audioBook.id)
+    this.initSrcAudioPlayer()
     this.playerRef.nativeElement.addEventListener('loadedmetadata', this.init.bind(this))
     this.playerRef.nativeElement.addEventListener('timeupdate', this.currentTimeUpdate.bind(this))
-    this.progressRef.nativeElement.addEventListener('input', this.newRangeInput.bind(this))
-    this.progressRef.nativeElement.addEventListener('change', this.newRangeChange.bind(this))
+
+  }
+
+  initSrcAudioPlayer(){
+    this.playerRef.nativeElement.setAttribute("src", environment.apiUrl + '/file/' + this.audioBook.id)
   }
 
   init(){
     this.audioInit = true
     this.player = this.playerRef.nativeElement
-    this.progress = this.progressRef.nativeElement
-    this.durationDisplay = this.genereReadingTime(this.player.duration)
-    this.initProgress(this.progress, this.player)
-    
-  }
-
-  initProgress(p: HTMLElement, m:HTMLMediaElement){
-    p.setAttribute('max', m.duration.toString()) 
-    p.setAttribute('min', this.rangeValue.toString()) 
-  }
-
-  currentTimeUpdate(){
-    this.currentTime = this.player.currentTime
-    if(this.updateRange){
-      this.currentTimeDisplay = this.genereReadingTime(this.player.currentTime)
-    }
+    this.duration = this.player.duration
   }
 
   playStop(){
@@ -89,23 +69,11 @@ export class AudioComponent implements AfterViewInit{
     }
   }
 
-  genereReadingTime(n:number): string{
-      const milisecondes = Math.floor(n*1000)
-      const date = new Date(milisecondes)
-      return date.toISOString().slice(11, 19)
+  currentTimeUpdate(){
+    this.timePassed = this.player.currentTime
   }
 
-  newRangeInput(e: Event){
-    this.updateRange = false
-
+  setNewCurrentTime(value: string){
+    this.player.currentTime = parseInt(value)
   }
-  newRangeChange(e: Event){
-    console.log("rangeValue1: " + this.rangeValue)
-    this.updateRange = true
-    this.rangeValue = parseInt((e.target as HTMLInputElement)?.value)
-    console.log("rangeValue2: " + this.rangeValue)
-    this.player.currentTime = this.rangeValue
-    console.log("currenttime: " + this.currentTime)
-  }
-
 }
