@@ -1,1 +1,23 @@
-<audio #player></audio>
+<div class="wrapper">
+    <audio #player></audio>
+        <div id="task">
+            <button #btn (click)="playBack()" class="btn" [disabled]="!audioInit"><icon [size]="20"><icon-play-back></icon-play-back></icon></button>
+            <button #btn (click)="playStop()" class="btn" [disabled]="!audioInit"><icon [size]="20">
+                <ng-container *ngIf="isPlaying; else elseBlock">
+                    <icon-pause></icon-pause>
+                </ng-container>
+                <ng-template #elseBlock>
+                    <icon-play></icon-play>
+                </ng-template>
+            </icon></button>
+            <button (click)="playForward()" class="btn" [disabled]="!audioInit"><icon [size]="20"><icon-play-forward></icon-play-forward></icon></button>
+    
+        </div>
+        <div id="progressBar">
+            <form>
+                <input #progress type="range" value="{{ currentTimeDisplay }}" >
+            </form>
+            <small>{{ durationDisplay }}</small>
+            <small>{{ currentTimeDisplay }}</small>
+        </div>
+</div>

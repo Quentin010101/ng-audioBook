@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LibraryComponent } from './library.component';
+import { PauseComponent } from './pause.component';
 
-describe('LibraryComponent', () => {
-  let component: LibraryComponent;
-  let fixture: ComponentFixture<LibraryComponent>;
+describe('PauseComponent', () => {
+  let component: PauseComponent;
+  let fixture: ComponentFixture<PauseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LibraryComponent ]
+      declarations: [ PauseComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LibraryComponent);
+    fixture = TestBed.createComponent(PauseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

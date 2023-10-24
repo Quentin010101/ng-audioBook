@@ -1,7 +1,7 @@
 <h3>Library</h3>
 <ng-container *ngIf="audioBooks">
   <ng-container *ngFor="let audioBook of audioBooks">
-    <div>
+    <div (click)="onClick(audioBook)">
       <h4>{{ audioBook.name }}</h4>
       <p>{{ audioBook.summary }}</p>
       <small>{{ audioBook.created | date : 'd MMM yy' }}</small>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AudioComponent } from './audio.component';
+import { PlayForwardComponent } from './play-forward.component';
 
-describe('AudioComponent', () => {
-  let component: AudioComponent;
-  let fixture: ComponentFixture<AudioComponent>;
+describe('PlayForwardComponent', () => {
+  let component: PlayForwardComponent;
+  let fixture: ComponentFixture<PlayForwardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AudioComponent ]
+      declarations: [ PlayForwardComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AudioComponent);
+    fixture = TestBed.createComponent(PlayForwardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

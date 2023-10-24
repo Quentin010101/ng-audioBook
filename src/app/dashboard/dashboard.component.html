@@ -1,2 +1,5 @@
 <app-nav></app-nav>
 <router-outlet></router-outlet>
+<ng-container *ngIf="audioBook">
+    <app-audio [audioBook]="audioBook"></app-audio>
+</ng-container>
