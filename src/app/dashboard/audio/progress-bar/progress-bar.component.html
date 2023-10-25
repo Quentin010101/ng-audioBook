@@ -1,6 +1,8 @@
-<div id="progressBar">
+<div id="progress-container">
   <form>
-      <input #progress type="range">
+      <div #bar (click)="onClick($event)" id="progress_bar">
+        <div #avancement id="progress_avancement"></div>
+      </div>
   </form>
   <small></small>
   <small></small>

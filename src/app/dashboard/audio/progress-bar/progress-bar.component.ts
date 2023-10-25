@@ -9,31 +9,31 @@ export class ProgressBarComponent implements AfterViewInit, OnChanges{
   @Input() timePassed!: number 
   @Input() duration!: number
 
-  @Output() timeEvent = new EventEmitter<string>();
+  @Output() timeEvent = new EventEmitter<number>();
 
-  @ViewChild("progress") progressRef!: ElementRef
-  progress!: HTMLInputElement
-  progressLoaded: boolean = false
+  @ViewChild("avancement") avancementRef!: ElementRef
+  avancement!: HTMLInputElement
+  @ViewChild("bar") barRef!: ElementRef
+  bar!: HTMLInputElement
+  componentInit: boolean = false
+
 
   ngAfterViewInit(): void {
-    this.progress = this.progressRef.nativeElement
-    this.initProgressBar()
-    this.progress.addEventListener('change', this.onChange.bind(this))
+    this.avancement = this.avancementRef.nativeElement
+    this.bar = this.barRef.nativeElement
+    this.componentInit = true
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes['timePassed'] != null && this.progressLoaded){
-      console.log("in")
-      this.progress.setAttribute('value', Math.floor(changes['timePassed'].currentValue).toString())
+    if(changes['timePassed'].currentValue != null && this.componentInit){
+      this.updateAvancementBar()
     }
   }
 
-  initProgressBar(){
-    this.progressLoaded = true
-    console.log('duration : ' + this.duration)
-    this.progress.setAttribute('max', this.duration.toString())
-    this.progress.setAttribute('min', "0")
-    this.progress.setAttribute('value', "0")
+  updateAvancementBar(){
+    console.log(this.timePassed)
+    let percent = Math.floor((this.timePassed*100)*100/this.duration)/100
+    this.avancement.style.width = percent + "%"
   }
 
   genereReadingTime(n:number): string{
@@ -42,9 +42,12 @@ export class ProgressBarComponent implements AfterViewInit, OnChanges{
     return date.toISOString().slice(11, 19)
   }
 
-onChange(e: Event){
-  const value = (e.target as HTMLInputElement)?.value
-  this.timeEvent.emit(value)
+onClick(e: MouseEvent){
+  const object = this.bar.getBoundingClientRect()
+  const x = e.clientX - object.left 
+  const per = Math.floor(x*10000/object.width)/100
+  console.log(per)
+  this.timeEvent.emit(per)
 }
 
 onInput(){

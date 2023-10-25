@@ -26,13 +26,15 @@ export class AudioComponent implements AfterViewInit{
     this.initSrcAudioPlayer()
     this.playerRef.nativeElement.addEventListener('loadedmetadata', this.init.bind(this))
     this.playerRef.nativeElement.addEventListener('timeupdate', this.currentTimeUpdate.bind(this))
-
+    this.playerRef.nativeElement.addEventListener('canplay', this.canplay.bind(this))
   }
 
   initSrcAudioPlayer(){
     this.playerRef.nativeElement.setAttribute("src", environment.apiUrl + '/file/' + this.audioBook.id)
   }
-
+  canplay(){
+    console.log('play')
+  }
   init(){
     this.audioInit = true
     this.player = this.playerRef.nativeElement
@@ -73,7 +75,9 @@ export class AudioComponent implements AfterViewInit{
     this.timePassed = this.player.currentTime
   }
 
-  setNewCurrentTime(value: string){
-    this.player.currentTime = parseInt(value)
+  setNewCurrentTime(value: number){
+    console.log('value currentTime: ' + (this.duration*value)/100)
+    // this.player.currentTime = (this.duration*value)/100
+    // this.timePassed = (this.duration*value)/100
   }
 }
