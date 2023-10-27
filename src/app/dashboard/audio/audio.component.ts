@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
 import { AudioBook } from 'src/app/model/AudioBookModel';
+import { AudioBookService } from 'src/app/service/audio-book.service';
 import { environment } from 'src/environment';
 
 @Component({
@@ -22,6 +23,10 @@ export class AudioComponent implements AfterViewInit{
   // conf
   forwardValue: number = 10
 
+  constructor(private _bookService: AudioBookService){
+
+  }
+
   ngAfterViewInit(): void {
     this.initSrcAudioPlayer()
     this.playerRef.nativeElement.addEventListener('loadedmetadata', this.init.bind(this))
@@ -30,7 +35,13 @@ export class AudioComponent implements AfterViewInit{
   }
 
   initSrcAudioPlayer(){
-    this.playerRef.nativeElement.setAttribute("src", environment.apiUrl + '/file/' + this.audioBook.id)
+    this.playerRef.nativeElement.setAttribute("preload", 'metadata')
+    this.playerRef.nativeElement.setAttribute("src", 'http://localhost:8090/file/1')
+    // this._bookService.getFile().subscribe({
+    //   next: (data) => {
+    //     console.log('data: ' + data)
+    //   }
+    // })
   }
   canplay(){
     console.log('play')
