@@ -8,57 +8,60 @@ import { environment } from 'src/environment';
   templateUrl: './audio.component.html',
   styleUrls: ['./audio.component.scss']
 })
-export class AudioComponent implements AfterViewInit{
+export class AudioComponent {
   @Input() audioBook!: AudioBook;
-  @ViewChild("player") playerRef!: ElementRef
   @ViewChild("btn") buttonRef!: ElementRef
 
   player!: HTMLMediaElement
   progress!: HTMLElement
   isPlaying: boolean = false
-  audioInit: boolean = false
+  isReady: boolean = false
+  isPlayable: boolean = false
   timePassed: number = 0
   duration!: number 
 
   // conf
   forwardValue: number = 10
 
-  constructor(private _bookService: AudioBookService){
-
+  ngOnInit(){
+    this.player = new Audio('http://localhost:8090/files/' + this.audioBook.fileName)
+    this.player.setAttribute("preload", 'metadata')
+    this.player.volume = 0.5
+    this.setEventListener()
   }
 
-  ngAfterViewInit(): void {
-    this.initSrcAudioPlayer()
-    this.playerRef.nativeElement.addEventListener('loadedmetadata', this.init.bind(this))
-    this.playerRef.nativeElement.addEventListener('timeupdate', this.currentTimeUpdate.bind(this))
-    this.playerRef.nativeElement.addEventListener('canplay', this.canplay.bind(this))
+  setEventListener(){
+    this.player.addEventListener('timeupdate', this.currentTimeUpdate.bind(this))
+    this.player.addEventListener('loadedmetadata', this.init.bind(this))
+    this.player.addEventListener('playing', this.playing.bind(this))
+    this.player.addEventListener('pause', this.paused.bind(this))
+    this.player.addEventListener('stop', this.stop.bind(this))
+    this.player.addEventListener('waiting', this.waiting.bind(this))
+    this.player.addEventListener('canplay', this.canplay.bind(this))
   }
-
-  initSrcAudioPlayer(){
-    this.playerRef.nativeElement.setAttribute("preload", 'metadata')
-    this.playerRef.nativeElement.setAttribute("src", 'http://localhost:8090/file/1')
-    // this._bookService.getFile().subscribe({
-    //   next: (data) => {
-    //     console.log('data: ' + data)
-    //   }
-    // })
+  waiting(){
+    this.isPlayable= false
   }
   canplay(){
-    console.log('play')
+    this.isPlayable = true
   }
+  playing(){
+    this.isPlaying = true
+  }
+  paused(){
+    this.isPlaying = false
+  }
+  stop(){
+    this.isPlaying = false
+  }
+
   init(){
-    this.audioInit = true
-    this.player = this.playerRef.nativeElement
+    this.isReady = true
     this.duration = this.player.duration
   }
 
-  playStop(){
-    if(this.isPlaying){
-      this.player.pause()
-    }else{
-      this.player.play()
-    }
-    this.isPlaying = !this.isPlaying
+  playStop(e: Event){
+    this.isPlaying? this.player.pause() : this.player.play()
   }
 
   playForward(){
@@ -87,8 +90,10 @@ export class AudioComponent implements AfterViewInit{
   }
 
   setNewCurrentTime(value: number){
-    console.log('value currentTime: ' + (this.duration*value)/100)
-    // this.player.currentTime = (this.duration*value)/100
-    // this.timePassed = (this.duration*value)/100
+    this.player.currentTime = (this.duration*value)/100
+    this.timePassed = (this.duration*value)/100
+  }
+  setNewRange(value: number){
+    this.player.volume = value/100
   }
 }

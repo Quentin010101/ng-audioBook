@@ -18,6 +18,7 @@ import { PlayForwardComponent } from './utils/icon/play-forward/play-forward.com
 import { PlayBackComponent } from './utils/icon/play-back/play-back.component';
 import { PauseComponent } from './utils/icon/pause/pause.component';
 import { ProgressBarComponent } from './dashboard/audio/progress-bar/progress-bar.component';
+import { VolumeComponent } from './dashboard/audio/volume/volume.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProgressBarComponent } from './dashboard/audio/progress-bar/progress-ba
     PlayBackComponent,
     PauseComponent,
     ProgressBarComponent,
+    VolumeComponent,
   ],
   imports: [
     BrowserModule,

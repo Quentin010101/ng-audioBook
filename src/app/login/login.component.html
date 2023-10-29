@@ -2,11 +2,11 @@
   <form [formGroup]="form">
     <div>
       <label for="email">Email</label>
-      <input type="text" formControlName="email">
+      <input id="email" type="email" formControlName="email">
     </div>
     <div>
       <label for="password">Password</label>
-      <input type="password" formControlName="password">
+      <input id="password" type="password" formControlName="password">
     </div>
     <div>
       <button (click)="login()">Log in</button>

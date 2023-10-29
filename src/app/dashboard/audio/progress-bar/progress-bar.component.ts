@@ -31,7 +31,6 @@ export class ProgressBarComponent implements AfterViewInit, OnChanges{
   }
 
   updateAvancementBar(){
-    console.log(this.timePassed)
     let percent = Math.floor((this.timePassed*100)*100/this.duration)/100
     this.avancement.style.width = percent + "%"
   }
@@ -43,10 +42,10 @@ export class ProgressBarComponent implements AfterViewInit, OnChanges{
   }
 
 onClick(e: MouseEvent){
+  e.stopPropagation()
   const object = this.bar.getBoundingClientRect()
   const x = e.clientX - object.left 
   const per = Math.floor(x*10000/object.width)/100
-  console.log(per)
   this.timeEvent.emit(per)
 }
 

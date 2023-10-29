@@ -20,12 +20,4 @@ export class AudioBookService {
   public getAllAudioBook(): Observable<AudioBook[]>{
     return this.http.get<AudioBook[]>(this.apiUrl + '/all');
   }
-
-  public getFile(){
-    const headers = new HttpHeaders()
-    headers.set('Content-Length', '10000')
-    headers.set('Range', 'bytes 10000-19999')
-    
-    return this.http.get(environment.apiUrl + '/file/' + 1, {headers: headers, responseType: 'text'});
-  }
 }

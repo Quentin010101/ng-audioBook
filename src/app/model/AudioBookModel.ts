@@ -1,6 +1,7 @@
 export class AudioBook{
   id!: number
   name!: string
-  summary!: String
+  summary!: string
   created!: Date
+  fileName!: string
 }

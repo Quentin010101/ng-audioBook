@@ -13,9 +13,7 @@ export class UserGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
-      console.log("guard")
-      console.log("logged in: " + this._authService.isLoggedIn())
+
 
       if(!this._authService.isLoggedIn()){
         this.router.navigate(['login'])
