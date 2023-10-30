@@ -1,5 +1,9 @@
-<app-nav></app-nav>
-<router-outlet></router-outlet>
-<ng-container *ngIf="audioBook">
-    <app-audio [audioBook]="audioBook"></app-audio>
-</ng-container>
+<div id="container">
+  <app-nav></app-nav>
+  <div id="router">
+    <router-outlet></router-outlet>
+  </div>
+  <ng-container *ngIf="audioBook">
+      <app-audio [audioBook]="audioBook"></app-audio>
+  </ng-container>
+</div>

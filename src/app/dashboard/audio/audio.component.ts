@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { AudioBook } from 'src/app/model/AudioBookModel';
-import { AudioBookService } from 'src/app/service/audio-book.service';
-import { environment } from 'src/environment';
+
 
 @Component({
   selector: 'app-audio',

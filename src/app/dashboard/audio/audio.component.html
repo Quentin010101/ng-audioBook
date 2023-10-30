@@ -1,26 +1,30 @@
-<ng-container *ngIf="isReady; else elseBlock">
-<div class="wrapper">
-  <div id="task">
-    <button #btn (click)="playBack()" class="btn" [disabled]="!isPlayable">
-      <icon [size]="20"><icon-play-back></icon-play-back></icon>
-    </button>
-    <button #btn (click)="playStop($event)" class="btn" [disabled]="!isPlayable">
-      <icon [size]="20">
-        <ng-container *ngIf="isPlaying; else elseBlock">
-          <icon-pause></icon-pause>
-        </ng-container>
-        <ng-template #elseBlock>
-          <icon-play></icon-play>
-        </ng-template>
-      </icon>
-    </button>
-    <button (click)="playForward()" class="btn" [disabled]="!isPlayable">
-      <icon [size]="20"><icon-play-forward></icon-play-forward></icon>
-    </button>
-  </div>
-    <app-progress-bar [timePassed]="timePassed" [duration]="duration"
-      (timeEvent)="setNewCurrentTime($event)" ></app-progress-bar>
+<div id="audio">
+  <ng-container *ngIf="isReady; else elseBlock">
+    <div class="wrapper">
+      <div id="task">
+        <button #btn (click)="playBack()" class="btn" [disabled]="!isPlayable">
+          <icon [size]="20"><icon-play-back></icon-play-back></icon>
+        </button>
+        <button #btn (click)="playStop($event)" class="btn" [disabled]="!isPlayable">
+          <icon [size]="20">
+            <ng-container *ngIf="isPlaying; else elseBlock">
+              <icon-pause></icon-pause>
+            </ng-container>
+            <ng-template #elseBlock>
+              <icon-play></icon-play>
+            </ng-template>
+          </icon>
+        </button>
+        <button (click)="playForward()" class="btn" [disabled]="!isPlayable">
+          <icon [size]="20"><icon-play-forward></icon-play-forward></icon>
+        </button>
+      </div>
+      <app-progress-bar [timePassed]="timePassed" [duration]="duration"
+        (timeEvent)="setNewCurrentTime($event)"></app-progress-bar>
       <app-volume [isPlayable]="isPlayable" (rangeEvent)="setNewRange($event)"></app-volume>
+    </div>
+  </ng-container>
+  <ng-template #elseBlock>
+    <app-spinner [color]="'blue'"></app-spinner>
+  </ng-template>
 </div>
-</ng-container>
-<ng-template #elseBlock>spinner</ng-template>

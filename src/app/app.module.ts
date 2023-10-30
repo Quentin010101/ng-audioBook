@@ -19,6 +19,14 @@ import { PlayBackComponent } from './utils/icon/play-back/play-back.component';
 import { PauseComponent } from './utils/icon/pause/pause.component';
 import { ProgressBarComponent } from './dashboard/audio/progress-bar/progress-bar.component';
 import { VolumeComponent } from './dashboard/audio/volume/volume.component';
+import {ScalingSquaresSpinnerModule } from 'angular-epic-spinners'
+import {BreedingRhombusSpinnerModule } from 'angular-epic-spinners';
+import { SpinnerComponent } from './utils/spinner/spinner.component';
+import { ZenComponent } from './utils/icon/zen/zen.component';
+import { OffComponent } from './utils/icon/off/off.component';
+import { IhomeComponent } from './utils/icon/ihome/ihome.component';
+import { IlibraryComponent } from './utils/icon/ilibrary/ilibrary.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,12 +45,20 @@ import { VolumeComponent } from './dashboard/audio/volume/volume.component';
     PauseComponent,
     ProgressBarComponent,
     VolumeComponent,
+    SpinnerComponent,
+    ZenComponent,
+    OffComponent,
+    IhomeComponent,
+    IlibraryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ScalingSquaresSpinnerModule,
+    BreedingRhombusSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
