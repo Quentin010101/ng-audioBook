@@ -27,6 +27,11 @@ import { OffComponent } from './utils/icon/off/off.component';
 import { IhomeComponent } from './utils/icon/ihome/ihome.component';
 import { IlibraryComponent } from './utils/icon/ilibrary/ilibrary.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatInputModule} from '@angular/material/input'; 
+import {MatButtonModule} from '@angular/material/button'; 
+import {MatIconModule} from '@angular/material/icon'; 
+import {MatTooltipModule} from '@angular/material/tooltip'; 
 
 @NgModule({
   declarations: [
@@ -50,6 +55,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     OffComponent,
     IhomeComponent,
     IlibraryComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ScalingSquaresSpinnerModule,
     BreedingRhombusSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

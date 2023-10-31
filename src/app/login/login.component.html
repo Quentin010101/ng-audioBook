@@ -2,15 +2,21 @@
   <ng-container *ngIf="form">
     <form [formGroup]="form">
       <div>
-        <label for="email">Email</label>
-        <input id="email" type="email" formControlName="email">
+        <mat-form-field appearance="outline"  matTooltip="Email" matTooltipPosition="left">
+          <mat-label color="primary">Email</mat-label>
+          <input type="email" matInput placeholder="Enter email" formControlName="email">
+          <mat-icon color="primary" matSuffix>email</mat-icon>
+        </mat-form-field>
       </div>
       <div>
-        <label for="password">Password</label>
-        <input id="password" type="password" formControlName="password">
+        <mat-form-field appearance="outline"  matTooltip="Password" matTooltipPosition="left">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput placeholder="Enter password" formControlName="password">
+          <mat-icon color="primary" matSuffix>lock</mat-icon>
+        </mat-form-field>
       </div>
-      <div>
-        <button (click)="login()">Log in</button>
+      <div style="display:flex; justify-content: center;">
+        <button mat-raised-button color="primary" (click)="login()">Log in</button>
       </div>
     </form>
   </ng-container>

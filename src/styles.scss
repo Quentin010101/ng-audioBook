@@ -8,12 +8,15 @@
   --color-bg-1: rgb(10,10,10);
   --color-bg-2: rgb(20,20,20);
   --color-bg-3: rgb(30,30,30);
-  --color-light-1: rgb(240,240,240);
-  --color-light-2: rgb(230,230,230);
-  --color-light-3: rgb(220,220,220);
 }
 
 body{
   font-family: 'Poppins', sans-serif;
   color: var(--color-light-1);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-app-background{
+  background-color: var(--color-bg-1);
 }
