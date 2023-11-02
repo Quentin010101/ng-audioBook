@@ -31,7 +31,7 @@
         <div>
           <div>
             <button mat-fab extended color="accent" (click)="imageInput.click()" [disabled]="imageF">
-              <ng-container *ngIf="bookF; else imageelese">
+              <ng-container *ngIf="imageF; else imageelese">
                 <mat-icon>check</mat-icon>
               </ng-container>
               <ng-template #imageelese>

@@ -22,6 +22,6 @@ export class AudioBookService {
   }
 
   public save(audioBook : AudioBook): Observable<AudioBook>{
-    return this.http.post<AudioBook>(this.apiUrl, audioBook)
+    return this.http.post<AudioBook>(this.apiUrl + '/save', audioBook)
   }
 }
