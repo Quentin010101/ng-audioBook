@@ -20,4 +20,8 @@ export class AudioBookService {
   public getAllAudioBook(): Observable<AudioBook[]>{
     return this.http.get<AudioBook[]>(this.apiUrl + '/all');
   }
+
+  public save(audioBook : AudioBook): Observable<AudioBook>{
+    return this.http.post<AudioBook>(this.apiUrl, audioBook)
+  }
 }

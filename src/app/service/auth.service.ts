@@ -25,6 +25,7 @@ export class AuthService {
 
   public logout() {
     localStorage.removeItem("token")
+    localStorage.removeItem("role")
     localStorage.removeItem("pseudo")
     localStorage.removeItem("expirationTime")
     this.router.navigate(['login'])
@@ -32,6 +33,7 @@ export class AuthService {
 
   private setSession(authResult: LoginResponse) {
     localStorage.setItem('pseudo', authResult.pseudo)
+    localStorage.setItem('role', authResult.role)
     localStorage.setItem('token', authResult.token)
     localStorage.setItem("expirationTime", authResult.expirationDate.toString())
   }  
@@ -59,6 +61,19 @@ export class AuthService {
       return ''
     }
     return pseudo
+  }
+
+  private getRole(): string{
+    const role = localStorage.getItem('role')
+    if(role == null) {
+      this.logout()
+      return ''
+    }
+    return role
+  }
+
+  public isAdmin(){
+    return this.getRole() == 'ROLE_ADMIN'
   }
 
 }

@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './utils/not-found/not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserGuard } from './user.guard';
+import { UserGuard } from './guard/user.guard';
 import { HomeComponent } from './dashboard/home/home.component';
 import { LibraryComponent } from './dashboard/library/library.component';
+import { AddAudioComponent } from './dashboard/add-audio/add-audio.component';
+import { AdminGuard } from './guard/admin.guard';
 
 const routes: Routes = [
   { path:'', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -15,7 +17,8 @@ const routes: Routes = [
   children: [
     {path:'', redirectTo: '/dashboard/home', pathMatch: 'full' },
     {path:'home', component: HomeComponent},
-    {path:'library', component: LibraryComponent}
+    {path:'library', component: LibraryComponent},
+    {path:'addBook', component: AddAudioComponent, canActivate: [AdminGuard]}
   ]
 
 },

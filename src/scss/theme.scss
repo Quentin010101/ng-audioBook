@@ -9,16 +9,35 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-$bv-brand: (
+// Primary
+:root{
+  
+  --p1: #fc9977;
+  --p2: #fc8259;
+  --p3: #fb6c3b;
+  --p4: #fa551d;
+  --p5: #f44205;
+  --p6: #d63a04;
+
+  --s1: #7fa3d1;
+  --s2: #6992c9;
+  --s3: #5282c1;
+  --s4: #4072b4;
+  --s5: #38649d;
+  --s6: #305687;
+}
+
+
+$theme-primary: (
     50: #ffffff,
     100: #dde6f3,
     200: #b4c9e4,
-    300: #7fa3d1,
-    400: #6992c9,
-    500: #5282c1,
-    600: #4072b4,
-    700: #38649d,
-    800: #305687,
+    300: var(--p1),
+    400: var(--p2),
+    500: var(--p3),
+    600: var(--p4),
+    700: var(--p5),
+    800: var(--p6),
     900: #284770,
     A100: #ffffff,
     A200: #dde6f3,
@@ -45,16 +64,16 @@ $bv-brand: (
       900: black,
     )
 );
-$bv-orange: (
+$theme-secondary: (
     50: #ffffff,
     100: #fff7f4,
     200: #fecdbd,
-    300: #fc9977,
-    400: #fc8259,
-    500: #fb6c3b,
-    600: #fa551d,
-    700: #f44205,
-    800: #d63a04,
+    300: var(--s1),
+    400: var(--s2),
+    500: var(--s3),
+    600: var(--s4),
+    700: var(--s5),
+    800: var(--s6),
     900: #b83204,
     A100: #ffffff,
     A200: #fff7f4,
@@ -74,8 +93,8 @@ $bv-orange: (
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$ng-audioBook-primary: mat.define-palette($bv-orange);
-$ng-audioBook-accent: mat.define-palette($bv-brand);
+$ng-audioBook-primary: mat.define-palette($theme-primary);
+$ng-audioBook-accent: mat.define-palette($theme-secondary);
 
 
 // The warn palette is optional (defaults to red).
@@ -95,8 +114,8 @@ $ng-audioBook-theme: mat.define-dark-theme((
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
+
 @include mat.all-component-themes($ng-audioBook-theme);
 
-:root{
-    --test: mat-color(mat-palette($bv-orange, 900));
-}
+
+

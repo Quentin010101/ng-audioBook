@@ -11,9 +11,16 @@
       </li>
       <li>
         <a routerLink="library" routerLinkActive="is-active">
-          <icon><icon-ilibrary /></icon> library
+          <icon><icon-ilibrary /></icon> Library
         </a>
       </li>
+      <ng-container *ngIf="isAdmin">
+        <li>
+          <a routerLink="addBook" routerLinkActive="is-active">
+            <icon><icon-add/></icon> Add AudioBook
+          </a>
+        </li>
+      </ng-container>
       <li id="off"><button (click)="logout()"><icon [size]="30"><icon-off [color]="'white'"/></icon></button></li>
     </ul>
   </nav>

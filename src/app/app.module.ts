@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './utils/not-found/not-found.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavComponent } from './dashboard/nav/nav.component';
 import { HomeComponent } from './dashboard/home/home.component';
@@ -31,7 +31,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'; 
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatIconModule} from '@angular/material/icon'; 
-import {MatTooltipModule} from '@angular/material/tooltip'; 
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { AddAudioComponent } from './dashboard/add-audio/add-audio.component';
+import { AddComponent } from './utils/icon/add/add.component'; 
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     OffComponent,
     IhomeComponent,
     IlibraryComponent,
+    AddAudioComponent,
+    AddComponent,
 
   ],
   imports: [
@@ -69,7 +73,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

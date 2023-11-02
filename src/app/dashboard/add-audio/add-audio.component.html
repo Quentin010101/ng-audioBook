@@ -1,0 +1,49 @@
+<div id="wrapper" class="page">
+  <h3>New Audio Book:</h3>
+  <div id="formContainer">
+    <div id="bookForm">
+      <form [formGroup]="form">
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Enter title" type="text" formControlName="title" />
+        </mat-form-field>
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Summary</mat-label>
+          <textarea matInput placeholder="Enter summary" formControlName="summary"></textarea>
+        </mat-form-field>
+      </form>
+      <div id="file">
+        <div>
+          <div>
+            <button mat-fab extended color="accent" (click)="bookInput.click()" [disabled]="bookF">
+              <ng-container *ngIf="bookF; else bookelse">
+                <mat-icon>check</mat-icon>
+              </ng-container>
+              <ng-template #bookelse>
+                <mat-icon>library_music</mat-icon> Add audio
+              </ng-template>
+            </button>
+            <input hidden type="file" #bookInput (change)="onBookFileSelected($event)">
+          </div>
+          <small>{{ fileName? fileName : 'No audio book selected'}}</small>
+          <small>Size: {{ fileSize? fileSize : '0'}}Mb</small>
+        </div>
+        <div>
+          <div>
+            <button mat-fab extended color="accent" (click)="imageInput.click()" [disabled]="imageF">
+              <ng-container *ngIf="bookF; else imageelese">
+                <mat-icon>check</mat-icon>
+              </ng-container>
+              <ng-template #imageelese>
+                <mat-icon>image</mat-icon> Add image
+              </ng-template>
+            </button>
+            <input hidden type="file" #imageInput (change)="onImageFileSelected($event)">
+          </div>
+          <small>{{ imageName? imageName : 'No image selected'}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button color="accent" (click)="onSubmit()">Submit</button>
+</div>
