@@ -10,7 +10,7 @@ export class FileService {
 
   constructor(private http: HttpClient) { }
 
-  public save(id:number, audiofile: FormData, image: FormData) {
-    return this.http.post(this.apiUrl + '/audio/save/' +id, audiofile);
+  public save(id:number, file: FormData) {
+    return this.http.post(this.apiUrl + '/audio/save/' +id, file);
   }
 }

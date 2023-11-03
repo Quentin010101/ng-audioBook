@@ -23,7 +23,7 @@ export class AudioComponent {
   forwardValue: number = 10
 
   ngOnInit(){
-    this.player = new Audio('http://localhost:8090/files/' + this.audioBook.fileName)
+    this.player = new Audio('http://localhost:8090/files/audio/' + this.audioBook.audioFile.id)
     this.player.setAttribute("preload", 'metadata')
     this.player.volume = 0.5
     this.setEventListener()

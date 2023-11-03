@@ -43,13 +43,12 @@ export class AddAudioComponent {
         const audioBook = new AudioBook(this.form.value)
         this._audioBookService.save(audioBook).subscribe({
           next: (book) => {
-            const formData1 = new FormData();
-            const formData2 = new FormData();
+            const formData = new FormData();
 
-            formData1.append('file', this.bookF)
-            formData2.append('file', this.imageF)
+            formData.append('fileB', this.bookF)
+            formData.append('fileI', this.imageF)
             
-            this._fileService.save(book.id, formData1, formData2).subscribe({
+            this._fileService.save(book.id, formData).subscribe({
               next: (data) => {
                 console.log(data)
               }
