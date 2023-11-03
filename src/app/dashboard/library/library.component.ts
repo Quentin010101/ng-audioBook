@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AudioBook } from 'src/app/model/AudioBookModel';
+import { Category } from 'src/app/model/CategoryModel';
 import { AudioBookService } from 'src/app/service/audio-book.service';
+import { CategoryService } from 'src/app/service/category.service';
 import { SharedAudioService } from 'src/app/service/shared-audio.service';
 
 @Component({
@@ -10,16 +12,16 @@ import { SharedAudioService } from 'src/app/service/shared-audio.service';
 })
 export class LibraryComponent {
   audioBooks!: AudioBook[]
+  category!: Category[]
 
-  constructor(private _audioBookService: AudioBookService, private _sharedAudioService: SharedAudioService){}
+  constructor(private _audioBookService: AudioBookService, private _categoryService : CategoryService){}
 
   ngOnInit(){
     this._audioBookService.getAllAudioBook().subscribe({
       next: (data) => this.audioBooks = data
     })
-  }
-
-  onClick(audioBook: AudioBook){
-    this._sharedAudioService.emitChange(audioBook)
+    this._categoryService.getAll().subscribe({
+      next: (data) => this.category = data
+    })
   }
 }

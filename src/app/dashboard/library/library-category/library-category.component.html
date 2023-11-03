@@ -1,0 +1,10 @@
+<div id="wrapper">
+    <h4>{{ category.name }}</h4>
+    <div id="bookContainer">
+        <ng-container *ngIf="audioBooksCategory">
+            <ng-container *ngFor="let audioBook of audioBooksCategory">
+                <app-library-book [audioBook]="audioBook"></app-library-book>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>

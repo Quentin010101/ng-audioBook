@@ -2,14 +2,14 @@
   <ng-container *ngIf="form">
     <form [formGroup]="form">
       <div>
-        <mat-form-field appearance="outline"  matTooltip="Email" matTooltipPosition="left">
+        <mat-form-field appearance="outline"  matTooltip="Email" matTooltipPosition="right">
           <mat-label color="primary">Email</mat-label>
           <input type="email" matInput placeholder="Enter email" formControlName="email">
           <mat-icon color="primary" matSuffix>email</mat-icon>
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field appearance="outline"  matTooltip="Password" matTooltipPosition="left">
+        <mat-form-field appearance="outline"  matTooltip="Password" matTooltipPosition="right">
           <mat-label>Password</mat-label>
           <input type="password" matInput placeholder="Enter password" formControlName="password">
           <mat-icon color="primary" matSuffix>lock</mat-icon>

@@ -34,6 +34,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { AddAudioComponent } from './dashboard/add-audio/add-audio.component';
 import { AddComponent } from './utils/icon/add/add.component'; 
+import {MatSelectModule} from '@angular/material/select';
+import { LibraryCategoryComponent } from './dashboard/library/library-category/library-category.component';
+import { LibraryBookComponent } from './dashboard/library/library-book/library-book.component'; 
 
 @NgModule({
   declarations: [
@@ -59,6 +62,8 @@ import { AddComponent } from './utils/icon/add/add.component';
     IlibraryComponent,
     AddAudioComponent,
     AddComponent,
+    LibraryCategoryComponent,
+    LibraryBookComponent,
 
   ],
   imports: [
@@ -75,7 +80,8 @@ import { AddComponent } from './utils/icon/add/add.component';
     MatIconModule,
     MatTooltipModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

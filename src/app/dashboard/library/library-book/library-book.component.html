@@ -1,0 +1,7 @@
+<ng-container *ngIf="audioBook">
+    <div (click)="onClick(audioBook)">
+        <h4>{{ audioBook.title }}</h4>
+        <p>{{ audioBook.summary }}</p>
+        <small>{{ audioBook.created | date : 'd MMM yy' }}</small>
+    </div>
+</ng-container>

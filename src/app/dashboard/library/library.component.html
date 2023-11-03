@@ -1,12 +1,8 @@
 <div class="page">
   <h3>Library</h3>
-  <ng-container *ngIf="audioBooks">
-    <ng-container *ngFor="let audioBook of audioBooks">
-      <div (click)="onClick(audioBook)">
-        <h4>{{ audioBook.title }}</h4>
-        <p>{{ audioBook.summary }}</p>
-        <small>{{ audioBook.created | date : 'd MMM yy' }}</small>
-      </div>
+  <ng-container *ngIf="category && audioBooks">
+    <ng-container *ngFor="let cat of category">
+      <app-library-category [category]="cat" [audioBooks]="audioBooks"></app-library-category>
     </ng-container>
   </ng-container>
 </div>

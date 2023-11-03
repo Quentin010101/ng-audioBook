@@ -1,3 +1,13 @@
+#wrapper{
+  height: max-content;
+  height: 100%;
+}
+#formContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
 form{
   display: flex;
   flex-direction: column;
@@ -13,12 +23,8 @@ form{
   }
   &>div{
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 0.25rem;
   }
-}
-#bookForm{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
 }
