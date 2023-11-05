@@ -13,4 +13,8 @@ export class FileService {
   public save(id:number, file: FormData) {
     return this.http.post(this.apiUrl + '/audio/save/' +id, file);
   }
+
+  public getImage(id: number){
+    return this.http.get(this.apiUrl + '/image/read/' + id, {responseType: 'blob'})
+  }
 }

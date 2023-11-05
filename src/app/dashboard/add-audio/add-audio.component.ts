@@ -5,6 +5,7 @@ import { Category } from 'src/app/model/CategoryModel';
 import { AudioBookService } from 'src/app/service/audio-book.service';
 import { CategoryService } from 'src/app/service/category.service';
 import { FileService } from 'src/app/service/file.service';
+import { SharedAudioService } from 'src/app/service/shared-audio.service';
 
 @Component({
   selector: 'app-add-audio',
@@ -23,7 +24,8 @@ export class AddAudioComponent {
 
   constructor(private _audioBookService: AudioBookService,
     private _fileService: FileService,
-    private _categoryService: CategoryService){
+    private _categoryService: CategoryService,
+    private _sharedAudioService: SharedAudioService){
 
   }
 
@@ -39,6 +41,7 @@ export class AddAudioComponent {
   initForms(){
     this.form = new FormGroup({
       title: new FormControl('', [Validators.required, Validators.maxLength(250)]),
+      author: new FormControl('', [Validators.required, Validators.maxLength(250)]),
       summary: new FormControl('',[ Validators.required, Validators.maxLength(2000)]),
       category: new FormControl('', Validators.required),
     })
@@ -63,6 +66,8 @@ export class AddAudioComponent {
             
             this._fileService.save(book.id, formData).subscribe({
               next: (data) => {
+                let message: string = 'The AudioBook ' + audioBook.title + ' has been uploaded!'
+                this._sharedAudioService.emitMessageChange(message)
                 this.reset()
               }
             })

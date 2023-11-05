@@ -15,11 +15,18 @@
         </a>
       </li>
       <ng-container *ngIf="isAdmin">
+        <mat-divider></mat-divider>
         <li>
           <a routerLink="addBook" routerLinkActive="is-active">
             <icon><icon-add/></icon> Add AudioBook
           </a>
         </li>
+        <li>
+          <a routerLink="addCategory" routerLinkActive="is-active">
+            <icon><icon-add/></icon> Add Category
+          </a>
+        </li>
+        <mat-divider></mat-divider>
       </ng-container>
       <li id="off"><button (click)="logout()"><icon [size]="30"><icon-off [color]="'white'"/></icon></button></li>
     </ul>

@@ -1,7 +1,7 @@
 @use '@angular/material' as mat;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
 
 
 *{
@@ -19,7 +19,9 @@ body{
   color: var(--color-light-1);
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.emoji{
+  font-family: 'Noto Color Emoji', sans-serif;
+}
 
 .mat-app-background{
   background-color: var(--color-bg-1);
@@ -27,6 +29,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .page{
   padding: 1rem;
+  height: 100%;
 
   h3{
     color: var(--p1);
@@ -37,4 +40,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .center{
   display: flex;
   justify-content: center;
+}
+.v_center{
+  display: flex;
+  align-items: center;
+}
+.gap_25{
+  gap: 0.25rem;
+}
+.gap_50{
+  gap: 0.5rem;
+}
+.gap_75{
+  gap: 0.75rem;
+}
+.gap_100{
+  gap: 1rem;
+}
+.enlarge-button{
+  padding: 1.5rem 2rem !important;
 }

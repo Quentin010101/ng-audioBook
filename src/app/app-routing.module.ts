@@ -8,6 +8,7 @@ import { HomeComponent } from './dashboard/home/home.component';
 import { LibraryComponent } from './dashboard/library/library.component';
 import { AddAudioComponent } from './dashboard/add-audio/add-audio.component';
 import { AdminGuard } from './guard/admin.guard';
+import { AddCategoryComponent } from './dashboard/add-category/add-category.component';
 
 const routes: Routes = [
   { path:'', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -18,7 +19,8 @@ const routes: Routes = [
     {path:'', redirectTo: '/dashboard/home', pathMatch: 'full' },
     {path:'home', component: HomeComponent},
     {path:'library', component: LibraryComponent},
-    {path:'addBook', component: AddAudioComponent, canActivate: [AdminGuard]}
+    {path:'addBook', component: AddAudioComponent, canActivate: [AdminGuard]},
+    {path:'addCategory', component: AddCategoryComponent, canActivate: [AdminGuard]}
   ]
 
 },

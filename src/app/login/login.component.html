@@ -6,6 +6,12 @@
           <mat-label color="primary">Email</mat-label>
           <input type="email" matInput placeholder="Enter email" formControlName="email">
           <mat-icon color="primary" matSuffix>email</mat-icon>
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            <small>Please enter a valid email address</small>
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            <small>Email is <strong>required</strong></small>
+          </mat-error>
         </mat-form-field>
       </div>
       <div>
@@ -13,10 +19,13 @@
           <mat-label>Password</mat-label>
           <input type="password" matInput placeholder="Enter password" formControlName="password">
           <mat-icon color="primary" matSuffix>lock</mat-icon>
+          <mat-error *ngIf="passwordFormControl.hasError('required')">
+            <small>Password is <strong>required</strong></small>
+          </mat-error>
         </mat-form-field>
       </div>
       <div style="display:flex; justify-content: center;">
-        <button mat-raised-button color="primary" (click)="login()">Log in</button>
+        <button mat-raised-button color="primary" class="enlarge-button" (click)="login()">Log in</button>
       </div>
     </form>
   </ng-container>

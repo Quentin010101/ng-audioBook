@@ -1,6 +1,7 @@
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
+@use 'sass:map';
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
 
@@ -109,6 +110,12 @@ $ng-audioBook-theme: mat.define-dark-theme((
     warn: $ng-audioBook-warn,
     ),
 ));
+
+
+$color-config:    mat.get-color-config($ng-audioBook-theme);
+$primary: map.get($color-config, 'primary');
+$accent:  map.get($color-config, 'accent');
+$warn:    map.get($color-config, 'warn');
  
 
 // Include theme styles for core and each component used in your app.

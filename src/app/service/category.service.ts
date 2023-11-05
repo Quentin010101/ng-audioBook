@@ -15,4 +15,12 @@ export class CategoryService {
   public getAll(): Observable<Category[]>{
     return this.http.get<Category[]>(this.apiUrl)
   }
+
+  public save(category: Category): Observable<Category[]>{
+    return this.http.post<Category[]>(this.apiUrl + "/save", category)
+  }
+
+  public delete(id: number): Observable<Category[]>{
+    return this.http.delete<Category[]>(this.apiUrl + "/delete/" + id)
+  }
 }

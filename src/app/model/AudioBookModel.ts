@@ -8,6 +8,7 @@ export class AudioBook{
 }
   id!: number
   title!: string
+  author!: string
   created!: Date
   summary!: string
   category!: Category

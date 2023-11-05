@@ -35,8 +35,14 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { AddAudioComponent } from './dashboard/add-audio/add-audio.component';
 import { AddComponent } from './utils/icon/add/add.component'; 
 import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 import { LibraryCategoryComponent } from './dashboard/library/library-category/library-category.component';
-import { LibraryBookComponent } from './dashboard/library/library-book/library-book.component'; 
+import { LibraryBookComponent } from './dashboard/library/library-book/library-book.component';
+import { MessageComponent } from './utils/message/message.component';
+import { TempComponent } from './utils/message/temp/temp.component'; 
+import {MatDividerModule} from '@angular/material/divider';
+import { AddCategoryComponent } from './dashboard/add-category/add-category.component';
+import {MatTableModule} from '@angular/material/table'; 
 
 @NgModule({
   declarations: [
@@ -64,6 +70,9 @@ import { LibraryBookComponent } from './dashboard/library/library-book/library-b
     AddComponent,
     LibraryCategoryComponent,
     LibraryBookComponent,
+    MessageComponent,
+    TempComponent,
+    AddCategoryComponent,
 
   ],
   imports: [
@@ -81,7 +90,10 @@ import { LibraryBookComponent } from './dashboard/library/library-book/library-b
     MatTooltipModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatDividerModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
