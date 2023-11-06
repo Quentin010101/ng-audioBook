@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
 import {
   trigger,
   state,
@@ -6,6 +6,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { Message } from 'src/app/model/MessageModel';
 
 @Component({
   selector: 'app-temp',
@@ -15,19 +16,30 @@ import {
     trigger('letsgo', [
       state('start', style({
         width: 0,
-      })),
+        backgroundColor: "{{color}}"
+      }), {params : { color: "green" }}),
       state('end', style({
         width: '100%',
-      })),
+        backgroundColor: "{{color}}"
+      }), {params : { color: "green" }}),
       transition('* => end', [
-        animate('4.5s')
-      ])
+        animate("{{duration}} ease-out")
+      ], {params : { color: "green" , duration: "1s"}})
     ])
   ]
 })
-export class TempComponent {
-  @Input() message !: string
-  @Input() duration !: number
-  @ViewChild('progress') progress!: ElementRef
+export class TempComponent implements OnChanges  {
+  @Input() message !: Message | null
+  @Input() duration !: string
+  @Input() rand!: number
+  test: string = 'start'
 
+  ngOnChanges(changes: any){
+    console.log(this.message)
+    this.test = 'start'
+    setTimeout(()=>{
+      this.test = 'end'
+    }, 10)
+  }
+  
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AudioBook } from 'src/app/model/AudioBookModel';
 import { Category } from 'src/app/model/CategoryModel';
+import { Message } from 'src/app/model/MessageModel';
 import { AudioBookService } from 'src/app/service/audio-book.service';
 import { CategoryService } from 'src/app/service/category.service';
 import { FileService } from 'src/app/service/file.service';
@@ -21,6 +22,8 @@ export class AddAudioComponent {
   imageName: string = '';
   fileSize!: number;
   category!: Category[]
+  audioBookExtension: string [] = ["mp3"]
+  imageExtension: string [] = ["png", "jpeg", "jpg"]
 
   constructor(private _audioBookService: AudioBookService,
     private _fileService: FileService,
@@ -61,12 +64,14 @@ export class AddAudioComponent {
 
         formData.append('fileB', this.bookF)
         formData.append('fileI', this.imageF)
+        console.log(audioBook)
         this._audioBookService.save(audioBook).subscribe({
           next: (book) => {
             
             this._fileService.save(book.id, formData).subscribe({
               next: (data) => {
-                let message: string = 'The AudioBook ' + audioBook.title + ' has been uploaded!'
+                let message = new Message()
+                message.text  = 'The AudioBook ' + audioBook.title + ' has been uploaded!'
                 this._sharedAudioService.emitMessageChange(message)
                 this.reset()
               }
@@ -80,17 +85,25 @@ export class AddAudioComponent {
   onBookFileSelected(e: Event){
     const files: FileList | null= (e.target as HTMLInputElement).files;
     if(files && files?.length > 0){
-      this.bookF = files[0]
-        this.fileName = this.bookF.name
-        this.fileSize = Math.trunc(10 * this.bookF.size / (1024*1024))/10
+      if(this.audioBookExtension.includes(files[0].name.split('.').pop() as string)){
+        this.bookF = files[0]
+          this.fileName = this.bookF.name
+          this.fileSize = Math.trunc(10 * this.bookF.size / (1024*1024))/10
+      }else{
+
+      }
     }
   }
 
   onImageFileSelected(e: Event){
     const files: FileList | null= (e.target as HTMLInputElement).files;
     if(files && files?.length > 0){
-      this.imageF = files[0]
-      this.imageName = this.imageF.name
+      if(this.imageExtension.includes(files[0].name.split('.').pop() as string)){
+        this.imageF = files[0]
+        this.imageName = this.imageF.name
+      }else{
+        
+      }
     }
 
   }
@@ -113,5 +126,12 @@ export class AddAudioComponent {
   enableForm(){
     this.form.enable()
     this.formFile.enable()
+  }
+
+  imageTootip(){
+    return this.imageExtension.join(", ")
+  }
+  audioBookTootip(): string{
+    return this.audioBookExtension.join(", ")
   }
 }

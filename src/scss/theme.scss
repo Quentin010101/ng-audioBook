@@ -26,6 +26,10 @@
   --s4: #4072b4;
   --s5: #38649d;
   --s6: #305687;
+
+  --e1: red;
+  --e2: red;
+  --e3: red;
 }
 
 
@@ -53,16 +57,16 @@ $theme-primary: (
         A700: white,
     ),
     background: (
-      50: black,
-      100: black,
-      200: black,
-      300: black,
-      400: black,
-      500: black,
-      600: black,
-      700: black,
-      800: black,
-      900: black,
+      50: blue,
+      100: blue,
+      200: blue,
+      300: blue,
+      400: blue,
+      500: blue,
+      600: blue,
+      700: blue,
+      800: blue,
+      900: blue,
     )
 );
 $theme-secondary: (
@@ -109,6 +113,7 @@ $ng-audioBook-theme: mat.define-dark-theme((
     accent: $ng-audioBook-accent,
     warn: $ng-audioBook-warn,
     ),
+   
 ));
 
 

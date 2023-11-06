@@ -14,7 +14,7 @@ export class LibraryComponent {
   audioBooks!: AudioBook[]
   category!: Category[]
 
-  constructor(private _audioBookService: AudioBookService, private _categoryService : CategoryService,private _sharedAudioService: SharedAudioService){}
+  constructor(private _audioBookService: AudioBookService, private _categoryService : CategoryService){}
 
   ngOnInit(){
     this._audioBookService.getAllAudioBook().subscribe({
@@ -23,6 +23,5 @@ export class LibraryComponent {
     this._categoryService.getAll().subscribe({
       next: (data) => this.category = data
     })
-    this._sharedAudioService.emitMessageChange("hello this is a test")
   }
 }

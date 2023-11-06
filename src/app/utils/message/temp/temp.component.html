@@ -1,8 +1,8 @@
-<div class="container mat-elevation-z20">
+<div class="container mat-elevation-z20" *ngIf="message">
   <div id="progress_bar">
-    <div #progress id="progress" [@letsgo]="'end'"></div>
+    <div #progress id="progress" [@letsgo]="{value: test, params: { duration: duration, color: message.error ? 'var(--e3)' : 'var(--p3)'}}"></div>
   </div>
   <div id="message" >
-    {{ message }}
+    {{ message.text }}
   </div>
 </div>

@@ -1,10 +1,16 @@
-<div id="container">
-  <app-nav></app-nav>
-  <div id="router">
-    <router-outlet></router-outlet>
-  </div>
-  <ng-container *ngIf="audioBook">
-      <app-audio [audioBook]="audioBook"></app-audio>
-  </ng-container>
-</div>
-<app-message></app-message>
+
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+      <app-nav></app-nav>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div id="router">
+        <router-outlet></router-outlet>
+      </div>
+      <ng-container *ngIf="audioBook">
+          <app-audio [audioBook]="audioBook"></app-audio>
+      </ng-container>
+      <app-message></app-message>
+    </mat-drawer-content>
+  </mat-drawer-container>
+

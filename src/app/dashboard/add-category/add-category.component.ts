@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Category } from 'src/app/model/CategoryModel';
+import { Message } from 'src/app/model/MessageModel';
 import { CategoryService } from 'src/app/service/category.service';
+import { SharedAudioService } from 'src/app/service/shared-audio.service';
 
 @Component({
   selector: 'app-add-category',
@@ -13,7 +15,7 @@ export class AddCategoryComponent {
   formControlCategory = new FormControl('', Validators.required)
   categories!: Category[]
   displayedColumns: string[] = ['position', 'name', 'delete']
-  constructor(private _categoryService: CategoryService){}
+  constructor(private _categoryService: CategoryService, private _sharedAudioService: SharedAudioService){}
 
   ngOnInit(){
     this._categoryService.getAll().subscribe({
@@ -40,9 +42,18 @@ export class AddCategoryComponent {
 
   delete(id: number){
     this._categoryService.delete(id).subscribe({
-      next: (data) => {
-        if(data != null){
-          this.categories = data
+      next: (categoryDelete) => {
+        this.categories = categoryDelete.categories
+        console.log(categoryDelete)
+        let message = new Message()
+        if(categoryDelete.deleted){
+          message.text = "The category has been deleted!"
+          this._sharedAudioService.emitMessageChange(message)
+        }
+        if(categoryDelete.used){
+          message.error = true
+          message.text = "The category is already used and cant be deleted!"
+          this._sharedAudioService.emitMessageChange(message)
         }
       }
     })

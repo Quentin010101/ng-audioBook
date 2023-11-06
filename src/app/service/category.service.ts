@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category } from '../model/CategoryModel';
 import { environment } from 'src/environment';
+import { CategoryDelete } from '../model/CategoryDeleteModel';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class CategoryService {
     return this.http.post<Category[]>(this.apiUrl + "/save", category)
   }
 
-  public delete(id: number): Observable<Category[]>{
-    return this.http.delete<Category[]>(this.apiUrl + "/delete/" + id)
+  public delete(id: number): Observable<CategoryDelete>{
+    return this.http.delete<CategoryDelete>(this.apiUrl + "/delete/" + id)
   }
 }

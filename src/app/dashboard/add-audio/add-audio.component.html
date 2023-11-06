@@ -28,7 +28,7 @@
         <div id="file">
           <div>
             <div>
-              <button mat-fab extended (click)="bookInput.click()" [disabled]="bookF">
+              <button mat-fab extended (click)="bookInput.click()" [disabled]="bookF"  matTooltip="{{audioBookTootip()}}" matTooltipPosition="right">
                 <ng-container *ngIf="bookF; else bookelse">
                   <mat-icon>check</mat-icon>
                 </ng-container>
@@ -47,7 +47,7 @@
           </div>
           <div>
             <div>
-              <button mat-fab extended  (click)="imageInput.click()" [disabled]="imageF">
+              <button mat-fab extended  (click)="imageInput.click()" [disabled]="imageF" matTooltip="{{imageTootip()}}" matTooltipPosition="right">
                 <ng-container *ngIf="imageF; else imageelese">
                   <mat-icon>check</mat-icon>
                 </ng-container>
@@ -62,10 +62,10 @@
             <small>{{ imageName? imageName : 'No image selected'}}</small>
           </div>
         </div>
+        <div class="center">
+          <button mat-raised-button  (click)="onSubmit()" [disabled]="formFile.invalid || form.invalid">Submit</button>
+        </div>
       </form>
-      <div class="center">
-        <button mat-raised-button  (click)="onSubmit()" [disabled]="form.invalid && formFile.invalid">Submit</button>
-      </div>
     </div>
   </div>
 </div>

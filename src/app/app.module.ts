@@ -43,6 +43,7 @@ import { TempComponent } from './utils/message/temp/temp.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { AddCategoryComponent } from './dashboard/add-category/add-category.component';
 import {MatTableModule} from '@angular/material/table'; 
+import {MatSidenavModule} from '@angular/material/sidenav'; 
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import {MatTableModule} from '@angular/material/table';
     MatSelectModule,
     MatCardModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
