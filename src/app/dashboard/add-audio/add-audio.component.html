@@ -3,7 +3,7 @@
   <div id="formContainer">
     <div id="bookForm">
       <form [formGroup]="form">
-        <mat-form-field  appearance="outline">
+        <mat-form-field  appearance="outline" >
           <mat-label>Title</mat-label>
           <input matInput placeholder="Enter title" type="text" formControlName="title" />
         </mat-form-field>
@@ -28,7 +28,7 @@
         <div id="file">
           <div>
             <div>
-              <button mat-fab extended (click)="bookInput.click()" [disabled]="bookF"  matTooltip="{{audioBookTootip()}}" matTooltipPosition="right">
+              <button color="primary" mat-fab extended (click)="bookInput.click()" [disabled]="bookF"  matTooltip="{{audioBookTootip()}}" matTooltipPosition="right">
                 <ng-container *ngIf="bookF; else bookelse">
                   <mat-icon>check</mat-icon>
                 </ng-container>
@@ -47,7 +47,7 @@
           </div>
           <div>
             <div>
-              <button mat-fab extended  (click)="imageInput.click()" [disabled]="imageF" matTooltip="{{imageTootip()}}" matTooltipPosition="right">
+              <button color="primary" mat-fab extended  (click)="imageInput.click()" [disabled]="imageF" matTooltip="{{imageTootip()}}" matTooltipPosition="right">
                 <ng-container *ngIf="imageF; else imageelese">
                   <mat-icon>check</mat-icon>
                 </ng-container>

@@ -1,5 +1,4 @@
 #nav{
-  border-right: solid 1px rgb(50, 50, 50);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -19,18 +18,13 @@
         &:visited{
           color: inherit;
         }
-        &:hover{
-          color: var(--s1);
-        }
+
+        
       }
     }
 
   }
   
-  .is-active{
-    color: var(--s3) !important;
-    background-color: var(--color-bg-2);
-  }
   button{
     border: none;
     outline: none;
@@ -44,7 +38,4 @@
   display: flex;
   justify-content: center;
 
-  &:hover path{
-      stroke: var(--s1) !important;
-  }
 }

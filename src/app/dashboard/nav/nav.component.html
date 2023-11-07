@@ -5,30 +5,30 @@
   <nav>
     <ul>
       <li>
-        <a routerLink="home" routerLinkActive="is-active">
+        <a routerLink="home" routerLinkActive="color-primary" class="color-primary">
          <icon><icon-ihome /></icon> Home
         </a>
       </li>
       <li>
-        <a routerLink="library" routerLinkActive="is-active">
+        <a routerLink="library" routerLinkActive="color-primary">
           <icon><icon-ilibrary /></icon> Library
         </a>
       </li>
       <ng-container *ngIf="isAdmin">
         <mat-divider></mat-divider>
         <li>
-          <a routerLink="addBook" routerLinkActive="is-active">
+          <a routerLink="addBook" routerLinkActive="color-primary">
             <icon><icon-add/></icon> Add AudioBook
           </a>
         </li>
         <li>
-          <a routerLink="addCategory" routerLinkActive="is-active">
+          <a routerLink="addCategory" routerLinkActive="color-primary">
             <icon><icon-add/></icon> Add Category
           </a>
         </li>
         <mat-divider></mat-divider>
       </ng-container>
-      <li id="off"><button (click)="logout()"><icon [size]="30"><icon-off [color]="'white'"/></icon></button></li>
+      <li id="off"><button (click)="logout()"><icon [size]="30"><icon-off/></icon></button></li>
     </ul>
   </nav>
 </div>

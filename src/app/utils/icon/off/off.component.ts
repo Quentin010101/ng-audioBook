@@ -6,5 +6,4 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./off.component.scss']
 })
 export class OffComponent {
-  @Input() color!: string
 }
