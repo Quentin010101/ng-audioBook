@@ -2,7 +2,7 @@
     <div id="progress_bar">
       <div #progress id="progress" [@letsgo]="{value: animations, params: { duration: duration }}" [ngClass]="{'bg-primary' : !message.error, 'bg-warn': message.error}"></div>
     </div>
-    <div id="message" >
+    <div id="message" matSnackBarLabel>
       {{ message.text }}
     </div>
   </div>

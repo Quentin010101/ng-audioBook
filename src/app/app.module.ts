@@ -104,10 +104,10 @@ import {MatMenuModule} from '@angular/material/menu';
     MatDividerModule,
     MatTableModule,
     MatSidenavModule,
-    MatToolbarModule,
     MatSnackBarModule,
     MatSlideToggleModule,
-    MatMenuModule
+    MatMenuModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
