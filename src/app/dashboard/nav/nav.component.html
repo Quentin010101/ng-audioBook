@@ -5,30 +5,34 @@
   <nav>
     <ul>
       <li>
-        <a routerLink="home" routerLinkActive="color-primary" class="color-primary">
-         <icon><icon-ihome /></icon> Home
+        <a routerLink="home" routerLinkActive="color-primary is-active">
+          <mat-icon>home</mat-icon> Home
         </a>
       </li>
       <li>
-        <a routerLink="library" routerLinkActive="color-primary">
-          <icon><icon-ilibrary /></icon> Library
+        <a routerLink="library" routerLinkActive="color-primary is-active">
+          <mat-icon>library_books</mat-icon> Library
         </a>
       </li>
       <ng-container *ngIf="isAdmin">
         <mat-divider></mat-divider>
         <li>
-          <a routerLink="addBook" routerLinkActive="color-primary">
-            <icon><icon-add/></icon> Add AudioBook
+          <a routerLink="addBook" routerLinkActive="color-primary is-active">
+            <mat-icon>add_box</mat-icon> Add AudioBook
           </a>
         </li>
         <li>
-          <a routerLink="addCategory" routerLinkActive="color-primary">
-            <icon><icon-add/></icon> Add Category
+          <a routerLink="addCategory" routerLinkActive="color-primary is-active">
+            <mat-icon>add_box</mat-icon> Add Category
           </a>
         </li>
         <mat-divider></mat-divider>
       </ng-container>
-      <li id="off"><button (click)="logout()"><icon [size]="30"><icon-off/></icon></button></li>
+      <li>
+        <a (click)="logout()" id="off">
+          <mat-icon>power_settings_new</mat-icon>
+        </a>
+      </li>
     </ul>
   </nav>
 </div>

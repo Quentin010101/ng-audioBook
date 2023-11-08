@@ -1,3 +1,5 @@
-<mat-sidenav-container>
-    <router-outlet></router-outlet>
-</mat-sidenav-container>   
+<div [ngClass]="{'light-theme': !isDarkMode, 'dark-theme': isDarkMode}">
+    <mat-sidenav-container >
+        <router-outlet></router-outlet>
+    </mat-sidenav-container>   
+</div>

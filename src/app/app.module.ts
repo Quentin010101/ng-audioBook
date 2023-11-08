@@ -39,11 +39,17 @@ import {MatCardModule} from '@angular/material/card';
 import { LibraryCategoryComponent } from './dashboard/library/library-category/library-category.component';
 import { LibraryBookComponent } from './dashboard/library/library-book/library-book.component';
 import { MessageComponent } from './utils/message/message.component';
-import { TempComponent } from './utils/message/temp/temp.component'; 
 import {MatDividerModule} from '@angular/material/divider';
 import { AddCategoryComponent } from './dashboard/add-category/add-category.component';
 import {MatTableModule} from '@angular/material/table'; 
 import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { Temp2Component } from './utils/message/temp2/temp2.component';
+import { ToggleComponent } from './utils/toggle/toggle.component'; 
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ToolbarComponent } from './dashboard/toolbar/toolbar.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -72,8 +78,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     LibraryCategoryComponent,
     LibraryBookComponent,
     MessageComponent,
-    TempComponent,
     AddCategoryComponent,
+    Temp2Component,
+    ToggleComponent,
+    ToolbarComponent,
 
   ],
   imports: [
@@ -95,7 +103,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatCardModule,
     MatDividerModule,
     MatTableModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatToolbarModule,
+    MatSnackBarModule,
+    MatSlideToggleModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

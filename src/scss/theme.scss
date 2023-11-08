@@ -1,38 +1,7 @@
 
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
+
 @use '@angular/material' as mat;
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat.core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$ng-audioBook-primary: mat.define-palette(mat.$indigo-palette);
-$ng-audioBook-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$ng-audioBook-warn: mat.define-palette(mat.$red-palette);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$ng-audioBook-theme: mat.define-light-theme((
-  color: (
-    primary: $ng-audioBook-primary,
-    accent: $ng-audioBook-accent,
-    warn: $ng-audioBook-warn,
-  )
-));
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($ng-audioBook-theme);
-
 @import '@angular/material/theming';
 @include mat-core();
 
@@ -59,6 +28,28 @@ $custom-warn:    mat-palette($mat-red);
 //   disabled-list-option: rgba(white, 0.12),
 //   tooltip: rgb(131, 35, 35),
 // );
+// Class
+$bg-color-1: rgb(15,15,15);
+$bg-color-2: rgb(30,30,30);
+:root{
+  --bg-color-1: rgb(15,15,15);
+  --bg-color-2: rgb(30,30,30);
+}
+.color-primary{
+  color: mat.get-color-from-palette($custom-primary, 500) !important;
+}
+.fill-primary{
+  fill: mat.get-color-from-palette($custom-primary, 500);
+}
+.bg-primary{
+  background-color: mat.get-color-from-palette($custom-primary, 500);
+}
+.bg-accent{
+  background-color: mat.get-color-from-palette($custom-accent, 500);
+}
+.bg-warn{
+  background-color: mat.get-color-from-palette($custom-warn, 500);
+}
 
 $custom-theme-light: mat-light-theme((
   color: (
@@ -97,12 +88,10 @@ $custom-theme-dark: mat-dark-theme((
 
   @return $modified-theme;
 }
-$custom-theme-dark: modify-background($custom-theme-dark, rgb(15,15,15), rgb(30,30,30));
+$custom-theme-dark: modify-background($custom-theme-dark, $bg-color-1, $bg-color-2);
 
 @include angular-material-theme($custom-theme-dark);
-
-// Class
-
-.color-primary{
-  color: mat.get-color-from-palette($custom-primary, 500);
+.light-theme{
+  @include angular-material-theme($custom-theme-light);
 }
+

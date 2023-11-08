@@ -1,10 +1,14 @@
 
+
   <mat-drawer-container class="example-container">
     <mat-drawer mode="side" opened>
       <app-nav></app-nav>
     </mat-drawer>
     <mat-drawer-content>
-      <div id="router">
+      <div id="container">
+        <mat-toolbar>
+          <app-toolbar></app-toolbar>
+        </mat-toolbar>
         <router-outlet></router-outlet>
       </div>
       <ng-container *ngIf="audioBook">
