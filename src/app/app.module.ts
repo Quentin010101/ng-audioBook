@@ -51,6 +51,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ToolbarComponent } from './dashboard/toolbar/toolbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -112,4 +113,6 @@ import {MatMenuModule} from '@angular/material/menu';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }
