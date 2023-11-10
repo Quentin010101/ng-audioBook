@@ -7,10 +7,12 @@ import { SharedAudioService } from 'src/app/service/shared-audio.service';
   styleUrls: ['./toggle.component.scss']
 })
 export class ToggleComponent {
+  darkMode: boolean = true
 
   constructor(private _sharedAudioService: SharedAudioService){}
 
   onSubmit(){
-    this._sharedAudioService.emitThemeChange(true)
+    this.darkMode = !this.darkMode
+    this._sharedAudioService.emitThemeChange(this.darkMode)
   }
 }

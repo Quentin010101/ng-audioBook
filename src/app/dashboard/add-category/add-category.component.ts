@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
-import { Category } from 'src/app/model/CategoryModel';
-import { Message } from 'src/app/model/MessageModel';
+import { Category } from 'src/app/model/category/CategoryModel';
+import { Message } from 'src/app/model/message/MessageModel';
 import { CategoryService } from 'src/app/service/category.service';
 import { SharedAudioService } from 'src/app/service/shared-audio.service';
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
+import {  Back, Power1 } from 'gsap'
 
 @Component({
   selector: 'app-nav',

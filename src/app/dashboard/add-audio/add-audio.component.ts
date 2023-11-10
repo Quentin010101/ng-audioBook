@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AudioBook } from 'src/app/model/AudioBookModel';
-import { Category } from 'src/app/model/CategoryModel';
-import { Message } from 'src/app/model/MessageModel';
+import { AudioBook } from 'src/app/model/book/AudioBookModel';
+import { Category } from 'src/app/model/category/CategoryModel';
+import { Message } from 'src/app/model/message/MessageModel';
 import { AudioBookService } from 'src/app/service/audio-book.service';
 import { CategoryService } from 'src/app/service/category.service';
 import { FileService } from 'src/app/service/file.service';

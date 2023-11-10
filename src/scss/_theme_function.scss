@@ -1,0 +1,48 @@
+
+@use '@angular/material' as mat;
+
+@function darker-background($theme) {
+    $bg: rgb(20,20,20);
+    $bg-light: rgb(30,30,30);
+     $theme-color: map-get($theme, color);
+     $color-background-palette: map-get($theme-color, background);
+     $color-background-palette: map-merge($color-background-palette, (background: $bg));
+     $color-background-palette: map-merge($color-background-palette, (raised-button: $bg));
+     $color-background-palette: map-merge($color-background-palette, (dialog: $bg-light));
+     $color-background-palette: map-merge($color-background-palette, (card: $bg-light));
+     $color-background-palette: map-merge($color-background-palette, (card: $bg-light));
+  
+     $background-palette: map-get($theme, background);
+     $background-palette: map-merge($background-palette, (background: $bg));
+     $background-palette: map-merge($background-palette, (raised-button: $bg));
+     $background-palette: map-merge($background-palette, (dialog: $bg-light));
+     $background-palette: map-merge($background-palette, (card: $bg-light));
+     $background-palette: map-merge($background-palette, (card: $bg-light));
+  
+     $modified-theme-color: map-merge($theme-color, (background: $color-background-palette));
+     $modified-theme: map-merge($theme, (color: $modified-theme-color));
+     $modified-theme: map-merge($modified-theme, (background: $background-palette));
+  
+     @return $modified-theme;
+   }
+
+   @function define-light-theme($palette, $accent) {
+    $theme: mat.define-light-theme((
+    color: (
+        primary: $palette,
+        accent: $accent,
+    ),
+    ));
+    @return $theme;
+   }
+   @function define-dark-theme($palette, $accent) {
+    $theme: mat.define-dark-theme((
+        color: (
+            primary: $palette,
+            accent: $accent,
+        ),
+        typography: mat.define-typography-config(),
+        density: 0,
+    ));
+    @return $theme;
+   }

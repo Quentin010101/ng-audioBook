@@ -1,0 +1,24 @@
+@use '@angular/material' as mat;
+@import "/src/scss/theme_function";
+
+$accent:  mat.define-palette(mat.$blue-grey-palette);
+$primary-1: mat.define-palette(mat.$pink-palette);
+$primary-2: mat.define-palette(mat.$green-palette);
+$primary-3: mat.define-palette(mat.$orange-palette);
+$primary-4: mat.define-palette(mat.$cyan-palette);
+$primary-5: mat.define-palette(mat.$indigo-palette);
+
+
+$light-theme-1: define-light-theme($primary-1, $accent);
+$light-theme-2: define-light-theme($primary-2, $accent);
+$light-theme-3: define-light-theme($primary-3, $accent);
+$light-theme-4: define-light-theme($primary-4, $accent);
+$light-theme-5: define-light-theme($primary-5, $accent);
+
+$dark-theme-1: define-dark-theme($primary-1, $accent);
+$dark-theme-2: define-dark-theme($primary-2, $accent);
+$dark-theme-3: define-dark-theme($primary-3, $accent);
+$dark-theme-4: define-dark-theme($primary-4, $accent);
+$dark-theme-5: define-dark-theme($primary-5, $accent);
+
+

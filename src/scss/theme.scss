@@ -1,96 +1,108 @@
 @use '@angular/material' as mat;
 @include mat.core();
-
-$custom-primary: mat.define-palette(mat.$pink-palette);
-$custom-accent:  mat.define-palette(mat.$blue-grey-palette);
-
-// The warn palette is optional (defaults to red).
-$custom-warn:    mat.define-palette(mat.$red-palette);
+@import "/src/scss/theme_variable";
+@import "/src/scss/theme_function";
 
 
-
-.color-primary{
-  color: mat.get-color-from-palette($custom-primary, 500) !important;
+@mixin define-classes($palette){
+  .color-primary{
+    color: mat.get-color-from-palette($palette, 500) !important;
+  }
+  .fill-primary{
+    fill: mat.get-color-from-palette($palette, 500) !important;
+  }
+  .bg-primary{
+    background-color: mat.get-color-from-palette($palette, 500) !important;
+  }
 }
-.fill-primary{
-  fill: mat.get-color-from-palette($custom-primary, 500);
+.bg-theme-1{
+  background-color: mat.get-color-from-palette($primary-1, 500) !important;
 }
-.bg-primary{
-  background-color: mat.get-color-from-palette($custom-primary, 500);
+.bg-theme-2{
+  background-color: mat.get-color-from-palette($primary-2, 500) !important;
 }
-.bg-accent{
-  background-color: mat.get-color-from-palette($custom-accent, 500);
+.bg-theme-3{
+  background-color: mat.get-color-from-palette($primary-3, 500) !important;
 }
+.bg-theme-4{
+  background-color: mat.get-color-from-palette($primary-4, 500) !important;
+}
+.bg-theme-5{
+  background-color: mat.get-color-from-palette($primary-5, 500) !important;
+}
+.color-theme-1{
+  color: mat.get-color-from-palette($primary-1, 500) !important;
+}
+.color-theme-2{
+  color: mat.get-color-from-palette($primary-2, 500) !important;
+}
+.color-theme-3{
+  color: mat.get-color-from-palette($primary-3, 500) !important;
+}
+.color-theme-4{
+  color: mat.get-color-from-palette($primary-4, 500) !important;
+}
+.color-theme-5{
+  color: mat.get-color-from-palette($primary-5, 500) !important;
+}
+
+
+
+
+
 .bg-warn{
-  background-color: mat.get-color-from-palette($custom-warn, 500);
+  background-color: mat.get-color-from-palette(mat.define-palette(mat.$red-palette), 500) !important;
 }
-
-$light-theme: mat.define-light-theme((
-  color: (
-    primary: $custom-primary,
-    accent: $custom-accent,
-  ),
-));
-$dark-theme: mat.define-dark-theme((
-  color: (
-    primary: $custom-primary,
-    accent: $custom-accent,
-    warn: $custom-warn,  
-  ),
-  typography: mat.define-typography-config(),
-  density: 0,
-));
-// $dark-theme-background-palette: (
-//   status-bar: black,
-//   app-bar:    map.get($grey-palette, 900),
-//   background: #303030,
-//   hover:      rgba(white, 0.04), // TODO(kara): check style with Material Design UX
-//   card:       map.get($grey-palette, 800),
-//   dialog:     map.get($grey-palette, 800),
-//   disabled-button: rgba(white, 0.12),
-//   raised-button: map.get($grey-palette, 800),
-//   focused-button: $light-focused,
-//   selected-button: map.get($grey-palette, 900),
-//   selected-disabled-button: map.get($grey-palette, 800),
-//   disabled-button-toggle: black,
-//   unselected-chip: map.get($grey-palette, 700),
-//   disabled-list-option: rgba(white, 0.12),
-//   tooltip: map.get($grey-palette, 700),
-// );
-@function modify-background($theme, $bg, $bg-light) {
-  // Replace the background in the color object's background palette.
-  $theme-color: map-get($theme, color);
-  $color-background-palette: map-get($theme-color, background);
-  $color-background-palette: map-merge($color-background-palette, (background: $bg));
-  $color-background-palette: map-merge($color-background-palette, (raised-button: $bg));
-  $color-background-palette: map-merge($color-background-palette, (dialog: $bg-light));
-  $color-background-palette: map-merge($color-background-palette, (card: $bg-light));
-  $color-background-palette: map-merge($color-background-palette, (card: $bg-light));
-
-  // Replace the background in the background palette.
-  $background-palette: map-get($theme, background);
-  $background-palette: map-merge($background-palette, (background: $bg));
-  $background-palette: map-merge($background-palette, (raised-button: $bg));
-  $background-palette: map-merge($background-palette, (dialog: $bg-light));
-  $background-palette: map-merge($background-palette, (card: $bg-light));
-  $background-palette: map-merge($background-palette, (card: $bg-light));
-
-  // Merge the changes into a new theme.
-  $modified-theme-color: map-merge($theme-color, (background: $color-background-palette));
-  $modified-theme: map-merge($theme, (color: $modified-theme-color));
-  $modified-theme: map-merge($modified-theme, (background: $background-palette));
-
-  @return $modified-theme;
+.dark-theme{
+  @include mat.all-component-themes(darker-background($dark-theme-1));
+  .theme-1{
+    @include mat.all-component-colors(darker-background($dark-theme-1));
+  }
+  .theme-2{
+    @include mat.all-component-colors(darker-background($dark-theme-2));
+  }
+  .theme-3{
+    @include mat.all-component-colors(darker-background($dark-theme-3));
+  }
+  .theme-4{
+    @include mat.all-component-colors(darker-background($dark-theme-4));
+  }
+  .theme-5{
+    @include mat.all-component-colors(darker-background($dark-theme-5));
+  }
 }
-$bg-color-1: rgb(20,20,20);
-$bg-color-2: rgb(30,30,30);
-$dark-theme: modify-background($dark-theme, $bg-color-1, $bg-color-2);
-
-
-
-@include mat.all-component-themes($dark-theme);
 .light-theme{
-  @include mat.all-component-colors($light-theme);
+  @include mat.all-component-themes($light-theme-1);
+  .theme-1{
+    @include mat.all-component-colors($light-theme-1);
+  }
+  .theme-2{
+    @include mat.all-component-colors($light-theme-2);
+  }
+  .theme-3{
+    @include mat.all-component-colors($light-theme-3);
+  }
+  .theme-4{
+    @include mat.all-component-colors($light-theme-4);
+  }
+  .theme-5{
+    @include mat.all-component-colors($light-theme-5);
+  }
+}
+.theme-1{
+  @include define-classes($primary-1);
+}
+.theme-2{
+  @include define-classes($primary-2);
+}
+.theme-3{
+  @include define-classes($primary-3);
+}
+.theme-4{
+  @include define-classes($primary-4);
+}
+.theme-5{
+  @include define-classes($primary-5);
 }
 
 

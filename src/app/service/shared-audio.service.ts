@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Message } from '../model/MessageModel';
+import { Message } from '../model/message/MessageModel';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +11,12 @@ export class SharedAudioService {
       private emitChangeSource = new Subject<any>();
       private emitChangeSource2 = new Subject<any>();
       private emitChangeSource3 = new Subject<any>();
+      private emitChangeSource4 = new Subject<any>();
       // Observable string streams
       changeEmitted$ = this.emitChangeSource.asObservable();
       messageEmitted$ = this.emitChangeSource2.asObservable()
       themeEmitted$ = this.emitChangeSource3.asObservable()
+      colorEmitted$ = this.emitChangeSource4.asObservable()
       // Service message commands
       emitChange(change: any) {
           this.emitChangeSource.next(change);
@@ -24,6 +26,9 @@ export class SharedAudioService {
       }
       emitThemeChange(change: boolean){
         this.emitChangeSource3.next(change)
+      }
+      emitColorChange(className: string){
+        this.emitChangeSource4.next(className)
       }
 
 
