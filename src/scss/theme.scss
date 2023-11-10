@@ -50,7 +50,9 @@
 
 
 
-
+.bg-warn{
+  background-color: mat.get-color-from-palette(mat.define-palette(mat.$red-palette), 500) !important;
+}
 .dark-theme{
   @include mat.all-component-themes(darker-background($dark-theme-1));
   .theme-1{

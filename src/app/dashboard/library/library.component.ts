@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AudioBook } from 'src/app/model/AudioBookModel';
-import { Category } from 'src/app/model/CategoryModel';
+import { AudioBook } from 'src/app/model/book/AudioBookModel';
+import { Category } from 'src/app/model/category/CategoryModel';
 import { AudioBookService } from 'src/app/service/audio-book.service';
 import { CategoryService } from 'src/app/service/category.service';
 import { SharedAudioService } from 'src/app/service/shared-audio.service';

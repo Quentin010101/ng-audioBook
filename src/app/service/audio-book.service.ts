@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AudioBook } from '../model/AudioBookModel';
+import { AudioBook } from '../model/book/AudioBookModel';
 import { environment } from 'src/environment';
 import { Observable } from 'rxjs';
 

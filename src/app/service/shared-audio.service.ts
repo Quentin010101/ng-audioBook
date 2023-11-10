@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Message } from '../model/MessageModel';
+import { Message } from '../model/message/MessageModel';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,8 @@ export class SharedAudioService {
       emitThemeChange(change: boolean){
         this.emitChangeSource3.next(change)
       }
-      emitColorChange(change: number){
-        this.emitChangeSource4.next(change)
+      emitColorChange(className: string){
+        this.emitChangeSource4.next(className)
       }
 
 

@@ -1,5 +1,6 @@
+
+import { Category } from "../category/CategoryModel";
 import { AudioFile } from "./AudioFileModel";
-import { Category } from "./CategoryModel";
 import { ImageFile } from "./ImageFileModel";
 
 export class AudioBook{

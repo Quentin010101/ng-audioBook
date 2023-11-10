@@ -3,9 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environment';
-import { LoginRequest } from '../model/AuthRequestModel';
-import { LoginResponse } from '../model/AuthResponseModel';
+import { LoginRequest } from '../model/auth/AuthRequestModel';
+import { LoginResponse } from '../model/auth/AuthResponseModel';
 import { Router } from '@angular/router';
+import { SignInRequest } from '../model/user/SignInRequest';
+import { User } from '../model/user/UserModel';
 
 
 @Injectable({
@@ -21,6 +23,10 @@ export class AuthService {
     return this.http.post<LoginResponse>(this.apiUrl + '/login', auth).pipe(
       tap(response => this.setSession(response)),
     )
+  }
+
+  public signin(user: SignInRequest): Observable<User>{
+    return this.http.post<User>(this.apiUrl + "/user/save", user);
   }
 
   public logout() {

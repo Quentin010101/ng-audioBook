@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { AudioBook } from 'src/app/model/AudioBookModel';
+import { AudioBook } from 'src/app/model/book/AudioBookModel';
 
 
 @Component({

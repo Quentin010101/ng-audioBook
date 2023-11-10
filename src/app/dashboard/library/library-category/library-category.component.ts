@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { AudioBook } from 'src/app/model/AudioBookModel';
-import { Category } from 'src/app/model/CategoryModel';
+import { AudioBook } from 'src/app/model/book/AudioBookModel';
+import { Category } from 'src/app/model/category/CategoryModel';
 
 @Component({
   selector: 'app-library-category',

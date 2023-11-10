@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
-import { MessageDuration } from 'src/app/model/MessageDurationModel';
-import { Message } from 'src/app/model/MessageModel';
+import { MessageDuration } from 'src/app/model/message/MessageDurationModel';
+import { Message } from 'src/app/model/message/MessageModel';
 import {
   trigger,
   state,
