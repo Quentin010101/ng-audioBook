@@ -43,8 +43,8 @@ export class AddCategoryComponent {
   delete(id: number){
     this._categoryService.delete(id).subscribe({
       next: (categoryDelete) => {
-        this.categories = categoryDelete.categories
         console.log(categoryDelete)
+        this.categories = categoryDelete.categories
         let message = new Message()
         if(categoryDelete.deleted){
           message.text = "The category has been deleted!"
