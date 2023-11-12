@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -52,6 +52,9 @@ import { ToolbarComponent } from './dashboard/toolbar/toolbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { JwtInterceptorService } from './service/jwt-interceptor.service';
 
+function initializeApp() {
+  
+}
 
 @NgModule({
   declarations: [
@@ -112,7 +115,8 @@ import { JwtInterceptorService } from './service/jwt-interceptor.service';
     MatToolbarModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
+    { provide: APP_INITIALIZER, useFactory: () => initializeApp, multi: true }
    ],
   bootstrap: [AppComponent]
 })

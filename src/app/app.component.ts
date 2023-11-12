@@ -12,48 +12,41 @@ import { ParamService } from './service/param.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  isDarkMode: boolean = true
-  theme: string = "theme-1"
+  isDarkMode!: boolean
+  theme!: string
 
 
-  constructor(private _sharedAudioService: SharedAudioService,
+  constructor(
     private overlayContainer: OverlayContainer,
     private _authService: AuthService,
-    private _paramService: ParamService
+    private _paramService: ParamService,
+    private _themeService: ThemeService
     ){
 
-    this.setOverlayTheme(this.isDarkMode)
-    overlayContainer.getContainerElement().classList.add(this.theme);
-    _sharedAudioService.themeEmitted$.subscribe({
-      next: (data) => {
-        this.isDarkMode = !this.isDarkMode
-        this.setOverlayTheme(this.isDarkMode)
-      }
-    })
-     _sharedAudioService.colorEmitted$.subscribe({
-       next: (data) => {
-         if(data >= 0 && data < this.theme.length){
-            overlayContainer.getContainerElement().classList.remove(this.theme);
-            overlayContainer.getContainerElement().classList.add(this.theme[data]);
-            this.theme = this.theme[data]
-         }
-       }
-     })
+
   }
 
   ngOnInit(){
-    let isloggedIn = this._authService.isLoggedIn()
-    if(isloggedIn){
+
+    if(this._authService.isLoggedIn()){
       this._paramService.getParam().subscribe({
         next: (param) => {
           if(param.darkTheme)
+            this._themeService.isDarkMode.next(param.darkTheme)
             this.isDarkMode = param.darkTheme
           if(param.theme)
+            this._themeService.theme.next(param.theme.className)
             this.theme = param.theme.className
           
         }
       })
+    }else{
+      this.theme = this._themeService.getTheme()
+      this.isDarkMode = this._themeService.getIsDarkMode()
     }
+
+    this.setOverlayTheme(this.isDarkMode)
+    this.overlayContainer.getContainerElement().classList.add(this.theme);
   }
 
   private setOverlayTheme(theme: boolean){
