@@ -43,7 +43,7 @@ export class LoginComponent {
       this._authService.login(auth).subscribe({
         next: (data) => {
           this.setTheme()
-          this.router.navigate(['/dashboard'])
+          this.router.navigate(['/dashboard/home'])
         },
         error: (error) => {
           if(error.status == 403 || error.status == 401){

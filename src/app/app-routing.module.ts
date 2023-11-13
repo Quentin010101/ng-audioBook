@@ -17,12 +17,35 @@ const routes: Routes = [
   component: DashboardComponent, 
   canActivate: [UserGuard],
   children: [
-    {path:'', redirectTo: '/dashboard/home', pathMatch: 'full' },
-    {path:'home', component: HomeComponent},
-    {path:'library', component: LibraryComponent},
-    {path:'addBook', component: AddAudioComponent, canActivate: [AdminGuard]},
-    {path:'addCategory', component: AddCategoryComponent, canActivate: [AdminGuard]},
-    {path:'addUsers', component: UserComponent, canActivate: [AdminGuard]},
+    // {path:'', redirectTo: '/dashboard/home', pathMatch: 'full' },
+    {
+      path:'home',
+      component: HomeComponent,
+      data: { icon: 'home', text: 'Home' }
+    },
+    {
+      path:'library',
+      component: LibraryComponent,
+      data: { icon: 'library_books', text: 'Library' }
+    },
+    {
+      path:'addBook',
+      component: AddAudioComponent,
+      data: { icon: 'add_box', text: 'Manage audio-book' },
+      canActivate: [AdminGuard]
+    },
+    {
+      path:'addCategory',
+      component: AddCategoryComponent,
+      data: { icon: 'add_box', text: 'Manage category' },
+      canActivate: [AdminGuard]
+    },
+    {
+      path:'addUsers',
+      component: UserComponent,
+      data: { icon: 'add_box', text: 'Manage users' },
+      canActivate: [AdminGuard]
+    },
   ]
 
 },

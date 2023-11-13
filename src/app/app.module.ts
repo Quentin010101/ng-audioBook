@@ -53,6 +53,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { JwtInterceptorService } from './config/jwt-interceptor.service';
 import { ErrorInterceptorService } from './config/error-interceptor.service';
 import { UserComponent } from './dashboard/user/user.component';
+import {MatListModule} from '@angular/material/list'; 
 
 function initializeApp() {
   
@@ -116,6 +117,7 @@ function initializeApp() {
     MatSlideToggleModule,
     MatMenuModule,
     MatToolbarModule,
+    MatListModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

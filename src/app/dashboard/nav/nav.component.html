@@ -2,42 +2,17 @@
   <div class="logo">
     <logo-zen></logo-zen>
   </div>
-  <nav>
-    <ul>
-      <li>
-        <a routerLink="home" routerLinkActive="color-primary is-active">
-          <mat-icon>home</mat-icon> Home
-        </a>
-      </li>
-      <li>
-        <a routerLink="library" routerLinkActive="color-primary is-active">
-          <mat-icon>library_books</mat-icon> Library
-        </a>
-      </li>
-      <ng-container *ngIf="isAdmin">
-        <mat-divider></mat-divider>
-        <li>
-          <a routerLink="addBook" routerLinkActive="color-primary is-active">
-            <mat-icon>add_box</mat-icon> Manage audio-book
-          </a>
-        </li>
-        <li>
-          <a routerLink="addCategory" routerLinkActive="color-primary is-active">
-            <mat-icon>add_box</mat-icon> Manage category
-          </a>
-        </li>
-        <li>
-          <a routerLink="addUsers" routerLinkActive="color-primary is-active">
-            <mat-icon>add_box</mat-icon> Manage users
-          </a>
-        </li>
-        <mat-divider></mat-divider>
+  <mat-nav-list>
+    <a *ngFor="let item of routes" mat-list-item [routerLinkActive]="'active bg-primary mat-elevation-z8'" routerLink="{{item.path}}">
+      <ng-container *ngIf="item.data">
+        <div class="part">
+          <mat-icon class="sidenav-icon">{{ item.data['icon'] }}</mat-icon>
+          <span>{{ item.data['text'] }}</span>
+        </div>
       </ng-container>
-      <li>
-        <a (click)="logout()" id="off">
-          <mat-icon>power_settings_new</mat-icon>
-        </a>
-      </li>
-    </ul>
-  </nav>
+    </a>
+    <a mat-list-item (click)="logout()">
+      <mat-icon>power_settings_new</mat-icon>
+    </a>
+  </mat-nav-list>
 </div>

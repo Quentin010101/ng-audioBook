@@ -1,8 +1,8 @@
 
 
   <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
-      <app-nav></app-nav>
+    <mat-drawer mode="side" opened class=" mat-elevation-z8">
+      <app-nav [routes]="children"></app-nav>
     </mat-drawer>
     <mat-drawer-content>
       <div id="container">
