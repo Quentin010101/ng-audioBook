@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ParamService } from 'src/app/service/param.service';
-import { SharedAudioService } from 'src/app/service/shared-audio.service';
+import { SharedAudioService } from 'src/app/config/shared-audio.service';
 import { ThemeService } from 'src/app/service/theme.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class ToggleComponent {
   constructor(private _paramService: ParamService, private _themeService: ThemeService){}
 
   ngOnInit(){
+    this.darkMode = this._themeService.baseMode
     this._themeService.isDarkMode.subscribe({
       next: (data) => {
         this.darkMode = data

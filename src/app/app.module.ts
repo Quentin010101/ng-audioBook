@@ -50,7 +50,9 @@ import { ToggleComponent } from './utils/toggle/toggle.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ToolbarComponent } from './dashboard/toolbar/toolbar.component';
 import {MatMenuModule} from '@angular/material/menu';
-import { JwtInterceptorService } from './service/jwt-interceptor.service';
+import { JwtInterceptorService } from './config/jwt-interceptor.service';
+import { ErrorInterceptorService } from './config/error-interceptor.service';
+import { UserComponent } from './dashboard/user/user.component';
 
 function initializeApp() {
   
@@ -87,6 +89,7 @@ function initializeApp() {
     Temp2Component,
     ToggleComponent,
     ToolbarComponent,
+    UserComponent,
 
   ],
   imports: [
@@ -116,6 +119,7 @@ function initializeApp() {
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
     { provide: APP_INITIALIZER, useFactory: () => initializeApp, multi: true }
    ],
   bootstrap: [AppComponent]

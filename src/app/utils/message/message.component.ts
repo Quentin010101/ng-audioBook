@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Message } from 'src/app/model/message/MessageModel';
-import { SharedAudioService } from 'src/app/service/shared-audio.service';
+import { SharedAudioService } from 'src/app/config/shared-audio.service';
 import { Temp2Component } from './temp2/temp2.component';
 import { MessageDuration } from 'src/app/model/message/MessageDurationModel';
 

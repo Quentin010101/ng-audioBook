@@ -27,6 +27,11 @@
       <div style="display:flex; justify-content: center;">
         <button mat-raised-button color="primary" class="enlarge-button" (click)="login()">Log in</button>
       </div>
+      <div  id="message" >
+        <p class="color-warn" *ngIf="messageError">
+          <i>{{ messageError }}</i>
+        </p>
+      </div>
     </form>
   </ng-container>
 </div>

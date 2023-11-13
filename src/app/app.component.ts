@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { SharedAudioService } from './service/shared-audio.service';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ThemeService } from './service/theme.service';
-import { Theme } from './model/theme/ThemeModel';
 import { AuthService } from './service/auth.service';
 import { ParamService } from './service/param.service';
 
@@ -15,34 +13,37 @@ export class AppComponent {
   isDarkMode!: boolean
   theme!: string
 
-
   constructor(
     private overlayContainer: OverlayContainer,
     private _authService: AuthService,
     private _paramService: ParamService,
     private _themeService: ThemeService
     ){
-
-
+      _themeService.isDarkMode.subscribe(mode => {
+        this.isDarkMode = mode
+        this.setOverlayTheme(mode)
+      })
+      _themeService.theme.subscribe(theme => {
+        this.theme = theme
+        this._themeService.getThemes().subscribe(themes =>{
+          themes.forEach((t)=>{
+            this.overlayContainer.getContainerElement().classList.remove(t.className);
+          })
+          this.overlayContainer.getContainerElement().classList.add(theme);
+        })
+      })
   }
 
   ngOnInit(){
-
+    this.theme = this._themeService.baseTheme
+    this.isDarkMode = this._themeService.baseMode
     if(this._authService.isLoggedIn()){
       this._paramService.getParam().subscribe({
         next: (param) => {
-          if(param.darkTheme)
             this._themeService.isDarkMode.next(param.darkTheme)
-            this.isDarkMode = param.darkTheme
-          if(param.theme)
             this._themeService.theme.next(param.theme.className)
-            this.theme = param.theme.className
-          
         }
       })
-    }else{
-      this.theme = this._themeService.getTheme()
-      this.isDarkMode = this._themeService.getIsDarkMode()
     }
 
     this.setOverlayTheme(this.isDarkMode)

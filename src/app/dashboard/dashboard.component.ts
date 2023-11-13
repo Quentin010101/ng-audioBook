@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AudioBook } from '../model/book/AudioBookModel';
-import { SharedAudioService } from '../service/shared-audio.service';
+import { SharedAudioService } from '../config/shared-audio.service';
 
 @Component({
   selector: 'app-dashboard',

@@ -2,7 +2,7 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/c
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environment';
-import { AuthService } from './auth.service';
+import { AuthService } from '../service/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,6 @@ export class JwtInterceptorService implements HttpInterceptor {
     const isApiUrl = request.url.startsWith(environment.apiUrl);
     
     if (logged && isApiUrl) {
-        console.log("send request")
         request = request.clone({
             setHeaders: { Authorization: `${token}` }
         });

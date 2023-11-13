@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { AudioBook } from 'src/app/model/book/AudioBookModel';
 import { FileService } from 'src/app/service/file.service';
-import { SharedAudioService } from 'src/app/service/shared-audio.service';
+import { SharedAudioService } from 'src/app/config/shared-audio.service';
 
 @Component({
   selector: 'app-library-book',

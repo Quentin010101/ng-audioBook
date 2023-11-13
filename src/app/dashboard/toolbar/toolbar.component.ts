@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Theme } from 'src/app/model/theme/ThemeModel';
 import { Param } from 'src/app/model/user/ParamModel';
 import { ParamService } from 'src/app/service/param.service';
-import { SharedAudioService } from 'src/app/service/shared-audio.service';
+import { SharedAudioService } from 'src/app/config/shared-audio.service';
 import { ThemeService } from 'src/app/service/theme.service';
 
 @Component({

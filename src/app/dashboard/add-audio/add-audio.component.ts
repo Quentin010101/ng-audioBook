@@ -6,7 +6,7 @@ import { Message } from 'src/app/model/message/MessageModel';
 import { AudioBookService } from 'src/app/service/audio-book.service';
 import { CategoryService } from 'src/app/service/category.service';
 import { FileService } from 'src/app/service/file.service';
-import { SharedAudioService } from 'src/app/service/shared-audio.service';
+import { SharedAudioService } from 'src/app/config/shared-audio.service';
 
 @Component({
   selector: 'app-add-audio',
