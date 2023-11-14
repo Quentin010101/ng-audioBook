@@ -1,36 +1,38 @@
+.container-c{
+    display: flex;
 
-#formContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 1rem;
+    .item{
+        width: 50%;
+
+        #form1{
+            display: flex;
+            flex-direction:column;
+
+            textarea{
+                min-height: 200px;
+            }
+        }
+
+        .add-item-1{
+            display:flex;
+            justify-content: center;
+            padding: 1rem 0;
+            button{
+                min-width: 100px;
+            }
+            
+        }
+        .add-item-2{
+            span{
+                font-weight: 200 !important;
+            }
+        }
+    }
 }
-form {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-}
-#file {
-  padding: 0rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  button {
-    width: 200px;
-    display: flex;
-    align-items: center;
-  }
-  & > div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-}
-.center button {
-  width: 100px;
-  height: 50px;
-}
-mat-card-content{
-  padding: 2rem !important;
+
+.submit{
+    button{
+        margin: 1.5rem;
+        padding: 1.5rem;
+    }
 }

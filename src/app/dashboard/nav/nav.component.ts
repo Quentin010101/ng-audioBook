@@ -10,15 +10,19 @@ import { Router, Routes } from '@angular/router';
 export class NavComponent {
   @Input() routes!: Routes
   isAdmin: boolean = false
+  pseudo!: string
 
 
   constructor(private _auth: AuthService, route: Router){}
 
   ngOnInit(){
     this.isAdmin = this._auth.isAdmin()
+    this.pseudo = this._auth.getPseudo()
   }
 
   logout(){
     this._auth.logout()
   }
+
+
 }

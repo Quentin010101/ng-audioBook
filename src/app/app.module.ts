@@ -53,7 +53,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { JwtInterceptorService } from './config/jwt-interceptor.service';
 import { ErrorInterceptorService } from './config/error-interceptor.service';
 import { UserComponent } from './dashboard/user/user.component';
-import {MatListModule} from '@angular/material/list'; 
+import {MatListModule} from '@angular/material/list';
+import { ContainerPageComponent } from './utils/container-page/container-page.component';
+import { PageComponent } from './utils/page/page.component';
+import { CardComponent } from './utils/card/card.component'; 
 
 function initializeApp() {
   
@@ -91,6 +94,9 @@ function initializeApp() {
     ToggleComponent,
     ToolbarComponent,
     UserComponent,
+    ContainerPageComponent,
+    PageComponent,
+    CardComponent,
 
   ],
   imports: [

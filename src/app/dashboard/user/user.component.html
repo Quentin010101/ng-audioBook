@@ -1,31 +1,29 @@
-<div id="wrapper" class="page">
-    <h3 class="color-primary">Manage Users:</h3>
-    <div id="container">
-        <div>
-            <table mat-table [dataSource]="users" class="mat-elevation-z10">
-              <ng-container matColumnDef="position">
-                <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-              </ng-container>
-              <ng-container matColumnDef="pseudo">
-                <th mat-header-cell *matHeaderCellDef> Pseudo </th>
-                <td mat-cell *matCellDef="let element"> {{element.pseudo}} </td>
-              </ng-container>
-              <ng-container matColumnDef="email">
-                <th mat-header-cell *matHeaderCellDef> Email </th>
-                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-              </ng-container>
-              <ng-container matColumnDef="delete">
-                <th mat-header-cell *matHeaderCellDef> Delete </th>
-                <td mat-cell *matCellDef="let element"> 
-                  <button mat-mini-fab color="warn" (click)="delete(element.id)">
-                    <mat-icon>delete_outline</mat-icon>
-                  </button>
-                </td>
-              </ng-container>
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-          </div>
-    </div>
-</div>
+<app-page>
+  <h3 h3>Manage Users:</h3>
+  <div>
+    <table mat-table [dataSource]="users" class="mat-elevation-z10">
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="pseudo">
+        <th mat-header-cell *matHeaderCellDef> Pseudo </th>
+        <td mat-cell *matCellDef="let element"> {{element.pseudo}} </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef> Delete </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button mat-mini-fab color="warn" (click)="delete(element.id)">
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</app-page>

@@ -6,4 +6,29 @@
       align-items: center !important;
       gap: 0.5rem;
     }
+    a{
+      border-radius: 0.25rem;
+      span{
+        font-size: 0.95em !important;
+      }
+      mat-icon{
+        transform: scale(0.85);
+      }
+    }
+    .list-container{
+      padding: 0.75rem;
+    }
+    .pseudo-container{
+      padding: 1.5rem 0;
+      .pseudo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1rem 0;
+      }
+    }
+
+    
 }
+

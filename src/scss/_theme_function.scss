@@ -42,7 +42,7 @@
             accent: $accent,
         ),
         typography: mat.define-typography-config(),
-        density: 0,
+        density: -2,
     ));
     @return $theme;
    }

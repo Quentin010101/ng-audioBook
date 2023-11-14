@@ -1,0 +1,13 @@
+<div id="card">
+    <div class="icon bg-primary mat-elevation-z10">
+        <ng-content select="[icon]"></ng-content>
+    </div>
+    <mat-card>
+        <mat-card-content>
+            <div class="title">
+                <ng-content select="[title]"></ng-content>
+            </div>
+            <ng-content></ng-content>
+        </mat-card-content>
+    </mat-card>
+</div>

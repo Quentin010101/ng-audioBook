@@ -2,17 +2,27 @@
   <div class="logo">
     <logo-zen></logo-zen>
   </div>
-  <mat-nav-list>
-    <a *ngFor="let item of routes" mat-list-item [routerLinkActive]="'active bg-primary mat-elevation-z8'" routerLink="{{item.path}}">
-      <ng-container *ngIf="item.data">
-        <div class="part">
-          <mat-icon class="sidenav-icon">{{ item.data['icon'] }}</mat-icon>
-          <span>{{ item.data['text'] }}</span>
-        </div>
-      </ng-container>
-    </a>
-    <a mat-list-item (click)="logout()">
-      <mat-icon>power_settings_new</mat-icon>
-    </a>
-  </mat-nav-list>
+  <div class="pseudo-container">
+    <mat-divider></mat-divider>
+    <div class="pseudo">
+      <mat-icon>person</mat-icon>
+       <span>{{ pseudo }}</span>
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="list-container">
+    <mat-nav-list>
+      <a *ngFor="let item of routes" mat-list-item [routerLinkActive]="'active bg-primary mat-elevation-z10'" routerLink="{{item.path}}">
+        <ng-container *ngIf="item.data">
+          <div class="part">
+            <mat-icon class="sidenav-icon">{{ item.data['icon'] }}</mat-icon>
+            <span>{{ item.data['text'] }}</span>
+          </div>
+        </ng-container>
+      </a>
+      <a mat-list-item (click)="logout()">
+        <mat-icon>power_settings_new</mat-icon>
+      </a>
+    </mat-nav-list>
+  </div>
 </div>
