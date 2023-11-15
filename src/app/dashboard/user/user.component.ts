@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { User } from 'src/app/model/user/UserModel';
 import { UserService } from 'src/app/service/user.service';
 
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class UserComponent {
   users!: User[]
-  displayedColumns: string[] = ['position', 'pseudo', 'email', 'delete']
+  displayedColumns: string[] = [ 'position','pseudo', 'email','creationDate','lastActivityDate', 'accountLocked', 'delete']
 
   constructor(private _userService: UserService){}
 
@@ -22,6 +23,20 @@ export class UserComponent {
   }
 
   delete(user: User){
+
+  }
+
+  update(event: MatSlideToggleChange, id: number){
+    console.log(event.checked + "  " + id)
+    if(event.checked){
+      this._userService.unlockingUser(id).subscribe({
+        next: (users) => this.users = users
+      })
+    }else{
+      this._userService.lockingUser(id).subscribe({
+        next: (users) => this.users = users
+      })
+    }
 
   }
 }

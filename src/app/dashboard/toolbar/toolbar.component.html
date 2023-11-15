@@ -1,6 +1,16 @@
-
+<div>
+  <button mat-icon-button (click)="sidenavClick()">
+    <ng-container *ngIf="open; else closedComp">
+      <mat-icon>more_vert</mat-icon>
+    </ng-container>
+    <ng-template #closedComp>
+      <mat-icon>list</mat-icon>
+    </ng-template>
+  </button>
+</div>
+<div>
   <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>more_vert</mat-icon>
+    <mat-icon>settings</mat-icon>
   </button>
   <mat-menu #menu="matMenu" >
     <button mat-menu-item [matMenuTriggerFor]="themeMenu">
@@ -19,4 +29,5 @@
       </button>
     </ng-container>
   </mat-menu>
+</div>
 

@@ -4,6 +4,8 @@ export class User{
     id!: number
     pseudo!: string
     email!: string
-    name!: string
     role!: Role
+    creationDate!: Date
+    lastActivityDate!: Date
+    accountLocked!: boolean
 }

@@ -1,7 +1,7 @@
 
 
-  <mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened class=" mat-elevation-z8" [fixedTopGap]="0" [fixedInViewport]="true">
+  <mat-sidenav-container class="example-container" autosize>
+    <mat-sidenav mode="side" opened class=" mat-elevation-z8" [fixedTopGap]="0" [fixedInViewport]="true" position="start">
       <app-nav [routes]="children"></app-nav>
     </mat-sidenav>
     <mat-sidenav-content>

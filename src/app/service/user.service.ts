@@ -16,5 +16,15 @@ export class UserService {
     return this.http.get<User[]>(this.apiUrl + "/all")
   }
 
+  lockingUser(id: number): Observable<User[]>{
+    return this.http.get<User[]>(this.apiUrl + "/locking/" + id)
+  }
+
+  unlockingUser(id: number): Observable<User[]>{
+    return this.http.get<User[]>(this.apiUrl + "/unLocking/" + id)
+  }
+
+
+
 
 }
