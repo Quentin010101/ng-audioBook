@@ -1,5 +1,5 @@
 <app-page>
-  <h3 h3>Library</h3>
+  <span h3>Library</span>
   <ng-container *ngIf="category && audioBooks; else elseBlock">
     <ng-container *ngFor="let cat of category">
         <app-library-category [category]="cat" [audioBooks]="audioBooks"></app-library-category>

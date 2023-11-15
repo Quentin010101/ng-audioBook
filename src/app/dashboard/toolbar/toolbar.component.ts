@@ -5,6 +5,7 @@ import { ParamService } from 'src/app/service/param.service';
 import { SharedAudioService } from 'src/app/config/shared-audio.service';
 import { ThemeService } from 'src/app/service/theme.service';
 import { BehaviorSubject } from 'rxjs';
+import { UtilsServiceService } from 'src/app/config/utils-service.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,9 +14,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ToolbarComponent {
     themes!: Theme[];
-    openBehavior = new BehaviorSubject<boolean>(true)
+    open: boolean = true
+    
 
-    constructor(private _themeServie: ThemeService, private _paramService: ParamService){
+    constructor(private _themeServie: ThemeService, private _paramService: ParamService, private _utilsService: UtilsServiceService){
       this._themeServie.getThemes().subscribe({
         next: (themes) => {
           this.themes = themes
@@ -32,6 +34,7 @@ export class ToolbarComponent {
       })
     }
     sidenavClick(){
-      this.openBehavior.next(false)
+      this.open = !this.open
+      this._utilsService.openBehavior.next(this.open)
     }
 }

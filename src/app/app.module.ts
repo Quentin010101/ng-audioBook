@@ -56,7 +56,8 @@ import { UserComponent } from './dashboard/user/user.component';
 import {MatListModule} from '@angular/material/list';
 import { ContainerPageComponent } from './utils/container-page/container-page.component';
 import { PageComponent } from './utils/page/page.component';
-import { CardComponent } from './utils/card/card.component'; 
+import { CardComponent } from './utils/card/card.component';
+import { SideNavComponent } from './utils/side-nav/side-nav.component'; 
 
 function initializeApp() {
   
@@ -97,6 +98,7 @@ function initializeApp() {
     ContainerPageComponent,
     PageComponent,
     CardComponent,
+    SideNavComponent,
 
   ],
   imports: [

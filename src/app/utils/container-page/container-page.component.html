@@ -1,4 +1,6 @@
 <div id="container">
-    <ng-content select="toolbar"></ng-content>
-    <ng-content></ng-content>
+  <div class="top">
+    <ng-content select="[toolbar]"></ng-content>
+  </div>
+  <ng-content></ng-content>
 </div>

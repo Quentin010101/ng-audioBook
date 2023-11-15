@@ -73,6 +73,12 @@
   .theme-5{
     @include mat.all-component-colors(darker-background($dark-theme-5));
   }
+  .bg-1{
+    background-color: $bg !important;
+   }
+   .bg-2{
+    background-color: $bg-light !important;
+   }
 }
 .light-theme{
   @include mat.all-component-themes($light-theme-1);
@@ -91,6 +97,13 @@
   .theme-5{
     @include mat.all-component-colors($light-theme-5);
   }
+  .bg-1{
+    background-color: white !important;
+   }
+   .bg-2{
+    background-color: #fafafa !important;
+    color: black;
+   }
 }
 .theme-1{
   @include define-classes($primary-1);

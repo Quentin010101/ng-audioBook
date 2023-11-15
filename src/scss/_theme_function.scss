@@ -1,9 +1,9 @@
 
 @use '@angular/material' as mat;
-
+$bg: rgb(20,20,20);
+$bg-light: rgb(30,30,30);
 @function darker-background($theme) {
-    $bg: rgb(20,20,20);
-    $bg-light: rgb(30,30,30);
+
      $theme-color: map-get($theme, color);
      $color-background-palette: map-get($theme-color, background);
      $color-background-palette: map-merge($color-background-palette, (background: $bg));
@@ -42,7 +42,7 @@
             accent: $accent,
         ),
         typography: mat.define-typography-config(),
-        density: -2,
+        density: -3,
     ));
     @return $theme;
    }

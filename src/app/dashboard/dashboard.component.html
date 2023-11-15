@@ -1,20 +1,20 @@
 
 
-  <mat-sidenav-container class="example-container" autosize>
-    <mat-sidenav mode="side" opened class=" mat-elevation-z8" [fixedTopGap]="0" [fixedInViewport]="true" position="start">
-      <app-nav [routes]="children"></app-nav>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <app-container-page>
-        <mat-toolbar toolbar>
-          <app-toolbar></app-toolbar>
-        </mat-toolbar>
-        <router-outlet></router-outlet>
-      </app-container-page>
-      <!-- <ng-container *ngIf="audioBook">
-          <app-audio [audioBook]="audioBook"></app-audio>
-      </ng-container> -->
-      <app-message></app-message>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+<app-side-nav>
+  <app-nav nav [routes]="children"></app-nav>
+  <app-container-page>
+    <div toolbar>
+      <app-toolbar></app-toolbar>
+    </div>
+    <router-outlet></router-outlet>
+  </app-container-page>
+  <!-- <ng-container *ngIf="audioBook">
+      <app-audio [audioBook]="audioBook"></app-audio>
+  </ng-container> -->
+  <app-message></app-message>
+</app-side-nav>
+
+
+
+
 

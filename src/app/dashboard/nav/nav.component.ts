@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { Router, Routes } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { UtilsServiceService } from 'src/app/config/utils-service.service';
 
 @Component({
   selector: 'app-nav',
@@ -15,7 +16,11 @@ export class NavComponent {
   open: boolean = true
 
 
-  constructor(private _auth: AuthService, route: Router){}
+  constructor(private _auth: AuthService, route: Router, private _utilsService: UtilsServiceService){
+    _utilsService.openBehavior.subscribe({
+      next: (bool) => this.open = bool
+    })
+  }
 
   ngOnInit(){
     this.isAdmin = this._auth.isAdmin()
