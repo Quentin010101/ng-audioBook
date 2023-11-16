@@ -21,29 +21,29 @@ const routes: Routes = [
     {
       path:'home',
       component: HomeComponent,
-      data: { icon: 'home', text: 'Home' }
+      data: { icon: 'home', text: 'Home', admin:false  }
     },
     {
       path:'library',
       component: LibraryComponent,
-      data: { icon: 'library_books', text: 'Library' }
+      data: { icon: 'library_books', text: 'Library', admin:false  }
     },
     {
       path:'addBook',
       component: AddAudioComponent,
-      data: { icon: 'add_box', text: 'Manage audio-book' },
+      data: { icon: 'queue_music', text: 'Manage audio-book', admin:true },
       canActivate: [AdminGuard]
     },
     {
       path:'addCategory',
       component: AddCategoryComponent,
-      data: { icon: 'add_box', text: 'Manage category' },
+      data: { icon: 'insert_chart', text: 'Manage category', admin:true  },
       canActivate: [AdminGuard]
     },
     {
       path:'addUsers',
       component: UserComponent,
-      data: { icon: 'add_box', text: 'Manage users' },
+      data: { icon: 'supervisor_account', text: 'Manage users', admin:true  },
       canActivate: [AdminGuard]
     },
   ]

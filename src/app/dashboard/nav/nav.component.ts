@@ -28,8 +28,4 @@ export class NavComponent {
     
   }
 
-  logout(){
-    this._auth.logout()
-  }
-
 }

@@ -16,6 +16,7 @@
       margin-bottom: 0.5rem;
       span{
         font-size: 0.95em !important;
+        font-weight: 200 !important;
         
       }
       mat-icon{
@@ -25,6 +26,9 @@
     }
     .list-container{
       padding: 0.75rem;
+      mat-divider{
+        margin: 1.5rem 0;
+      }
     }
     .pseudo-container{
       padding: 3rem 0 1.5rem 0;
@@ -43,7 +47,7 @@
    span.opened{
     max-width: 200px;
     opacity: 1;
-    margin-left: 0.5rem;
+    margin-left: 1rem;
    }
    span.closed{
     max-width: 0px;

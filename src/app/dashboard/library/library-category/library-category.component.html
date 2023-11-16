@@ -3,7 +3,7 @@
     <div id="bookContainer">
         <ng-container *ngIf="audioBooksCategory">
             <ng-container *ngFor="let audioBook of audioBooksCategory">
-                <app-library-book [audioBook]="audioBook"></app-library-book>
+                <app-card-book [audioBook]="audioBook"></app-card-book>
             </ng-container>
         </ng-container>
     </div>

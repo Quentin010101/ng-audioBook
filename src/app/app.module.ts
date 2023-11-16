@@ -57,7 +57,8 @@ import {MatListModule} from '@angular/material/list';
 import { ContainerPageComponent } from './utils/container-page/container-page.component';
 import { PageComponent } from './utils/page/page.component';
 import { CardComponent } from './utils/card/card.component';
-import { SideNavComponent } from './utils/side-nav/side-nav.component'; 
+import { SideNavComponent } from './utils/side-nav/side-nav.component';
+import { CardBookComponent } from './utils/card-book/card-book.component'; 
 
 function initializeApp() {
   
@@ -99,6 +100,7 @@ function initializeApp() {
     PageComponent,
     CardComponent,
     SideNavComponent,
+    CardBookComponent,
 
   ],
   imports: [

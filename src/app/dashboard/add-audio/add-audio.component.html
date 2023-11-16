@@ -31,55 +31,59 @@
     </div>
     <div class="item">
       <form [formGroup]="formFile">
-        <app-card>
-          <mat-icon icon>library_music</mat-icon>
-          <h4 title>Audio file</h4>
-          <div class="add-item-1">
-            <button color="primary" mat-fab extended (click)="bookInput.click()" [disabled]="bookF"
-              matTooltip="{{audioBookTootip()}}" matTooltipPosition="right">
-              <ng-container *ngIf="bookF; else bookelse">
-                <div class="v_center gap_50">
-                  Audio added
-                  <mat-icon>check</mat-icon>
-                </div>
-              </ng-container>
-              <ng-template #bookelse>
-                <div class="v_center gap_50">
-                  Add audio
-                </div>
-              </ng-template>
-            </button>
-            <input hidden type="file" #bookInput (change)="onBookFileSelected($event)" formControlName="bookFile">
-          </div>
-          <div class="add-item-2">
-            <p><small>Audio book name: <span>{{ fileName? fileName : 'No audio book selected'}}</span></small></p>
-            <p><small>Size: <span>{{ fileSize? fileSize : '0'}}Mb</span></small></p>
-          </div>
-        </app-card>
-        <app-card>
-          <mat-icon icon>image</mat-icon>
-          <h4 title>Image file</h4>
-          <div class="add-item-1">
-            <button color="primary" mat-fab extended (click)="imageInput.click()" [disabled]="imageF"
-              matTooltip="{{imageTootip()}}" matTooltipPosition="right">
-              <ng-container *ngIf="imageF; else imageelese">
-                <div class="v_center gap_50">
-                  Image added
-                  <mat-icon>check</mat-icon>
-                </div>
-              </ng-container>
-              <ng-template #imageelese>
-                <div class="v_center gap_50">
-                  Add image
-                </div>
-              </ng-template>
-            </button>
-            <input hidden type="file" #imageInput (change)="onImageFileSelected($event)" formControlName="imageFile">
-          </div>
-          <div class="add-item-2">
-            <small>{{ imageName? imageName : 'No image selected'}}</small>
-          </div>
-        </app-card>
+        <div>
+          <app-card>
+            <mat-icon icon>library_music</mat-icon>
+            <h4 title>Audio file</h4>
+            <div class="add-item-1">
+              <button color="primary" mat-fab extended (click)="bookInput.click()" [disabled]="bookF"
+                matTooltip="{{audioBookTootip()}}" matTooltipPosition="right">
+                <ng-container *ngIf="bookF; else bookelse">
+                  <div class="v_center gap_50">
+                    Audio added
+                    <mat-icon>check</mat-icon>
+                  </div>
+                </ng-container>
+                <ng-template #bookelse>
+                  <div class="v_center gap_50">
+                    Add audio
+                  </div>
+                </ng-template>
+              </button>
+              <input hidden type="file" #bookInput (change)="onBookFileSelected($event)" formControlName="bookFile">
+            </div>
+            <div class="add-item-2">
+              <p><small>Audio book name: <span>{{ fileName? fileName : 'No audio book selected'}}</span></small></p>
+              <p><small>Size: <span>{{ fileSize? fileSize : '0'}}Mb</span></small></p>
+            </div>
+          </app-card>
+        </div>
+        <div>
+          <app-card>
+            <mat-icon icon>image</mat-icon>
+            <h4 title>Image file</h4>
+            <div class="add-item-1">
+              <button color="primary" mat-fab extended (click)="imageInput.click()" [disabled]="imageF"
+                matTooltip="{{imageTootip()}}" matTooltipPosition="right">
+                <ng-container *ngIf="imageF; else imageelese">
+                  <div class="v_center gap_50">
+                    Image added
+                    <mat-icon>check</mat-icon>
+                  </div>
+                </ng-container>
+                <ng-template #imageelese>
+                  <div class="v_center gap_50">
+                    Add image
+                  </div>
+                </ng-template>
+              </button>
+              <input hidden type="file" #imageInput (change)="onImageFileSelected($event)" formControlName="imageFile">
+            </div>
+            <div class="add-item-2">
+              <small>{{ imageName? imageName : 'No image selected'}}</small>
+            </div>
+          </app-card>
+        </div>
       </form>
     </div>
   </div>
