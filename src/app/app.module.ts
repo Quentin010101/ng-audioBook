@@ -37,7 +37,6 @@ import { AddComponent } from './utils/icon/add/add.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import { LibraryCategoryComponent } from './dashboard/library/library-category/library-category.component';
-import { LibraryBookComponent } from './dashboard/library/library-book/library-book.component';
 import { MessageComponent } from './utils/message/message.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { AddCategoryComponent } from './dashboard/add-category/add-category.component';
@@ -89,7 +88,6 @@ function initializeApp() {
     AddAudioComponent,
     AddComponent,
     LibraryCategoryComponent,
-    LibraryBookComponent,
     MessageComponent,
     AddCategoryComponent,
     Temp2Component,
