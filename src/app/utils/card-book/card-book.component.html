@@ -1,7 +1,13 @@
 <mat-card>
-    <img *ngIf="src" mat-card-image [src]="src" >
+  <div class="img-bg" [ngStyle]="{'background-image': 'url(' + src + ')'}">
+    <div class="after bg-2"></div>
+    <div class="img">
+      <img *ngIf="src" mat-card-image [src]="src" >
+    </div>
+  </div>
+  
     <mat-card-content>
-        <p>{{ audioBook.title }}</p>
-        <p><small><i>{{ audioBook.author }}</i></small></p>
+        <div class="title">{{ audioBook.title }}</div>
+        <div><small>By <i>{{ audioBook.author }}</i></small></div>
     </mat-card-content>
 </mat-card>
