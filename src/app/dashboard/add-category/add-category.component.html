@@ -10,10 +10,10 @@
             <mat-label>Category</mat-label>
             <input matInput placeholder="Enter a new category" type="text" formControlName="category" />
           </mat-form-field>
-          <div class="submit">
-            <button color="primary" mat-raised-button (click)="onSubmit()" [disabled]="form.invalid">Submit</button>
-          </div>
         </form>
+        <div class="submit">
+          <button color="primary" mat-raised-button (click)="onSubmit()" [disabled]="form.invalid">Submit</button>
+        </div>
       </div>
     </app-card>
     <div>

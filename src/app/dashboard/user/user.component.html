@@ -1,6 +1,33 @@
 <app-page>
   <span h3>Manage Users:</span>
   <div>
+    <app-card>
+      <h4 title>New User</h4>
+      <mat-icon icon>check</mat-icon>
+      <form [formGroup]="form">
+        <mat-form-field appearance="outline" matTooltipPosition="below"
+        [matTooltip]="'length max:' + validation.pseudo.maxLength.toString() + ' min:' + validation.pseudo.minLength.toString()"
+        >
+          <mat-label>Pseudo</mat-label>
+          <input matInput placeholder="Enter pseudo" type="text" formControlName="pseudo" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" matTooltipPosition="below"
+        [matTooltip]="'length max:' + validation.email.maxLength.toString()"
+        >
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Enter email" type="email" formControlName="email"  />
+        </mat-form-field>
+        <mat-form-field appearance="outline" matTooltipPosition="below"
+        [matTooltip]="'length min:' + validation.password.minLength.toString() + ' max:' + validation.password.maxLength.toString()"
+        >
+          <mat-label>Pseudo</mat-label>
+          <input matInput placeholder="Enter pseudo" type="password" formControlName="password" autocomplete="new-password"/>
+        </mat-form-field>
+      </form>
+      <div class="submit">
+        <button color="primary" mat-raised-button (click)="add()" [disabled]="form.invalid">Submit</button>
+      </div>
+    </app-card>
     <table mat-table [dataSource]="users" class="mat-elevation-z10">
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef>No.</th>

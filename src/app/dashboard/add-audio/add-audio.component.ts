@@ -64,7 +64,7 @@ export class AddAudioComponent {
 
         formData.append('fileB', this.bookF)
         formData.append('fileI', this.imageF)
-        console.log(audioBook)
+
         this._audioBookService.save(audioBook).subscribe({
           next: (book) => {
             

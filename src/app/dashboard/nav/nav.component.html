@@ -27,20 +27,22 @@
           </ng-container>
         </ng-container>
       </ng-container>
-      <mat-divider></mat-divider>
-      <ng-container *ngFor="let item of routes">
-        <ng-container *ngIf="item.data">
-          <ng-container *ngIf="item.data['admin']">
-            <a mat-list-item [routerLinkActive]="'active bg-primary mat-elevation-z10'" routerLink="{{item.path}}">
-                <div class="part">
-                  <mat-icon class="sidenav-icon">{{ item.data['icon'] }}</mat-icon>
-                  <span [ngClass]="{'opened':open, 'closed':!open}">{{ item.data['text'] }}</span>
-                </div>
-            </a>
+      <ng-container *ngIf="isAdmin">
+        <mat-divider></mat-divider>
+        <ng-container *ngFor="let item of routes">
+          <ng-container *ngIf="item.data">
+            <ng-container *ngIf="item.data['admin']">
+              <a mat-list-item [routerLinkActive]="'active bg-primary mat-elevation-z10'" routerLink="{{item.path}}">
+                  <div class="part">
+                    <mat-icon class="sidenav-icon">{{ item.data['icon'] }}</mat-icon>
+                    <span [ngClass]="{'opened':open, 'closed':!open}">{{ item.data['text'] }}</span>
+                  </div>
+              </a>
+            </ng-container>
           </ng-container>
         </ng-container>
+        <mat-divider></mat-divider>
       </ng-container>
-      <mat-divider></mat-divider>
     </mat-nav-list>
   </div>
 </div>

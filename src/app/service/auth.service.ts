@@ -24,11 +24,10 @@ export class AuthService {
       tap(response => this.setSession(response)),
     )
   }
-
+  
   public signin(user: SignInRequest): Observable<User>{
-    return this.http.post<User>(this.apiUrl + "/user/save", user);
+    return this.http.post<User>(this.apiUrl + "/signin", user);
   }
-
   public logout() {
     localStorage.removeItem("token")
     localStorage.removeItem("role")
