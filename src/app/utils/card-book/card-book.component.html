@@ -5,9 +5,15 @@
       <img *ngIf="src" mat-card-image [src]="src" >
     </div>
   </div>
-  
+  <div style="display: flex; justify-content: space-between;">
     <mat-card-content>
         <div class="title">{{ audioBook.title }}</div>
-        <div><small>By <i>{{ audioBook.author }}</i></small></div>
+        <mat-card-subtitle><small>By <i>{{ audioBook.author }}</i></small></mat-card-subtitle>
     </mat-card-content>
+    <mat-card-actions>
+      <button mat-mini-fab color="primary">
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+    </mat-card-actions>
+  </div>
 </mat-card>

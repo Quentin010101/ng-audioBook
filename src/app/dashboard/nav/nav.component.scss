@@ -13,7 +13,8 @@
     }
     a{
       border-radius: 0.25rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
+      height: 3rem;
       span{
         font-size: 0.95em !important;
         font-weight: 200 !important;
@@ -27,7 +28,7 @@
     .list-container{
       padding: 0.75rem;
       mat-divider{
-        margin: 1.5rem 0;
+        margin: 1rem 0;
       }
     }
     .pseudo-container{

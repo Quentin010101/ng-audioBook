@@ -15,6 +15,7 @@ export class FileService {
   }
 
   public getImage(id: number){
+    console.log("test")
     return this.http.get(this.apiUrl + '/image/read/' + id, {responseType: 'blob'})
   }
 }

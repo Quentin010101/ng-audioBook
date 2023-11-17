@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environment';
 import { User } from '../model/user/UserModel';
+import { ResponseGenerique } from '../model/ResponseGeneriqueModel';
 import { SignInRequest } from '../model/user/SignInRequest';
 
 @Injectable({
@@ -28,6 +29,9 @@ export class UserService {
   delete(id : number): Observable<User[]>{
     return this.http.delete<User[]>(this.apiUrl + '/delete/'+ id)
   }
-
+  
+  signin(user: SignInRequest): Observable<ResponseGenerique<User[]>>{
+    return this.http.post<ResponseGenerique<User[]>>(this.apiUrl + "/signin", user);
+  }
 
 }

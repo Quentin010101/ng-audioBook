@@ -56,11 +56,12 @@
 .color-warn{
   color: mat.get-color-from-palette(mat.define-palette(mat.$red-palette), 500) !important;
 }
+
+@include mat.all-component-themes(darker-background($dark-theme-1));
 .dark-theme{
-  @include mat.all-component-themes(darker-background($dark-theme-1));
-  .theme-1{
-    @include mat.all-component-colors(darker-background($dark-theme-1));
-  }
+  // .theme-1{
+  //   @include mat.all-component-colors(darker-background($dark-theme-1));
+  // }
   .theme-2{
     @include mat.all-component-colors(darker-background($dark-theme-2));
   }
@@ -81,7 +82,6 @@
    }
 }
 .light-theme{
-  @include mat.all-component-themes($light-theme-1);
   .theme-1{
     @include mat.all-component-colors($light-theme-1);
   }
@@ -100,7 +100,7 @@
   .bg-1{
     background-color: white !important;
    }
-   .bg-2{
+  .bg-2{
     background-color: #fafafa !important;
     color: black;
    }

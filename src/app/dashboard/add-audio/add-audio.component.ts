@@ -14,6 +14,7 @@ import { SharedAudioService } from 'src/app/config/shared-audio.service';
   styleUrls: ['./add-audio.component.scss']
 })
 export class AddAudioComponent {
+  formFinal!: FormGroup
   form!: FormGroup
   formFile!: FormGroup
   bookF!: File | null
@@ -51,6 +52,10 @@ export class AddAudioComponent {
     this.formFile = new FormGroup({
       bookFile: new FormControl('', Validators.required),
       imageFile: new FormControl('', Validators.required),
+    })
+    this.formFinal = new FormGroup({
+      a1: this.form,
+      a2: this.formFile
     })
   }
 

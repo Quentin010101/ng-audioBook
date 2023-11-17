@@ -57,8 +57,9 @@ import { ContainerPageComponent } from './utils/container-page/container-page.co
 import { PageComponent } from './utils/page/page.component';
 import { CardComponent } from './utils/card/card.component';
 import { SideNavComponent } from './utils/side-nav/side-nav.component';
-import { CardBookComponent } from './utils/card-book/card-book.component'; 
-
+import { CardBookComponent } from './utils/card-book/card-book.component';
+import { ButtonSubmitComponent } from './utils/button-submit/button-submit.component'; 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 function initializeApp() {
   
 }
@@ -99,6 +100,7 @@ function initializeApp() {
     CardComponent,
     SideNavComponent,
     CardBookComponent,
+    ButtonSubmitComponent,
 
   ],
   imports: [
@@ -125,7 +127,8 @@ function initializeApp() {
     MatSlideToggleModule,
     MatMenuModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

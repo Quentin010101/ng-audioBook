@@ -40,6 +40,7 @@ export class AppComponent {
     if(this._authService.isLoggedIn()){
       this._paramService.getParam().subscribe({
         next: (param) => {
+          console.log(param)
             this._themeService.isDarkMode.next(param.darkTheme)
             this._themeService.theme.next(param.theme.className)
         }

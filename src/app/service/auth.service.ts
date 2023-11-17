@@ -1,13 +1,14 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import {  tap } from 'rxjs/operators';
 import { environment } from 'src/environment';
 import { LoginRequest } from '../model/auth/AuthRequestModel';
 import { LoginResponse } from '../model/auth/AuthResponseModel';
 import { Router } from '@angular/router';
 import { SignInRequest } from '../model/user/SignInRequest';
 import { User } from '../model/user/UserModel';
+import { ResponseGenerique } from '../model/ResponseGeneriqueModel';
 
 
 @Injectable({
@@ -23,10 +24,6 @@ export class AuthService {
     return this.http.post<LoginResponse>(this.apiUrl + '/login', auth).pipe(
       tap(response => this.setSession(response)),
     )
-  }
-  
-  public signin(user: SignInRequest): Observable<User>{
-    return this.http.post<User>(this.apiUrl + "/signin", user);
   }
   public logout() {
     localStorage.removeItem("token")

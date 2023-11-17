@@ -11,9 +11,7 @@
             <input matInput placeholder="Enter a new category" type="text" formControlName="category" />
           </mat-form-field>
         </form>
-        <div class="submit">
-          <button color="primary" mat-raised-button (click)="onSubmit()" [disabled]="form.invalid">Submit</button>
-        </div>
+        <app-button-submit [form]="form" (ev)="onSubmit()"></app-button-submit>
       </div>
     </app-card>
     <div>
