@@ -26,16 +26,10 @@ export class AudioComponent {
   constructor(private _fileService: FileService){}
 
   ngOnInit(){
-    this._fileService.getAudio(this.audioBook.audioFile.id).subscribe({
-      next: (data) => {
-        let url = window.URL
-        let src = url.createObjectURL(data)
-        this.player = new Audio(src + this.audioBook.audioFile.id)
-        this.player.setAttribute("preload", 'metadata')
-        this.player.volume = 0.5
-        this.setEventListener()
-      }
-    })
+    this.player = new Audio('http://localhost:8090/files/audio/read/' + this.audioBook.audioFile.id + "?Authorization=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJxQGdtYWlsLmNvbSIsImV4cCI6MTcwMDU4NjE3NiwiaWF0IjoxNzAwNTgzMTc2fQ.zcYtNyPd5HXqeHisXQBHXILlpVmALU-B7d4qRjAFJumzvow7nmYJPgSa77SpDqWc345m2R44bO8lDpyx_OcL-Q")
+    this.player.setAttribute("preload", 'metadata')
+    this.player.volume = 0.5
+    this.setEventListener()
   }
 
   setEventListener(){
@@ -98,7 +92,8 @@ export class AudioComponent {
   }
 
   setNewCurrentTime(value: number){
-    this.player.currentTime = (this.duration*value)/100
+    console.log(value)
+    this.player.currentTime = Math.floor((this.duration*value)/100)
     this.timePassed = (this.duration*value)/100
   }
   setNewRange(value: number){
