@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
-import { Router, Routes } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { Routes } from '@angular/router';
 import { UtilsServiceService } from 'src/app/config/utils-service.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class NavComponent {
   open: boolean = true
 
 
-  constructor(private _auth: AuthService, route: Router, private _utilsService: UtilsServiceService){
+  constructor(private _auth: AuthService, private _utilsService: UtilsServiceService){
     _utilsService.openBehavior.subscribe({
       next: (bool) => this.open = bool
     })

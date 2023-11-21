@@ -11,7 +11,6 @@ import { FileService } from 'src/app/service/file.service';
 export class CardBookComponent {
   @Input() audioBook!: AudioBook
   src!: string;
-  @ViewChild('img') image!: ElementRef
 
   constructor( private _sharedAudioService: SharedAudioService, private _fileService: FileService){}
   

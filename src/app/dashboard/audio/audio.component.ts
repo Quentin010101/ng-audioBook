@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { AudioBook } from 'src/app/model/book/AudioBookModel';
+import { FileService } from 'src/app/service/file.service';
 
 
 @Component({
@@ -22,11 +23,19 @@ export class AudioComponent {
   // conf
   forwardValue: number = 10
 
+  constructor(private _fileService: FileService){}
+
   ngOnInit(){
-    this.player = new Audio('http://localhost:8090/files/audio/read/' + this.audioBook.audioFile.id)
-    this.player.setAttribute("preload", 'metadata')
-    this.player.volume = 0.5
-    this.setEventListener()
+    this._fileService.getAudio(this.audioBook.audioFile.id).subscribe({
+      next: (data) => {
+        let url = window.URL
+        let src = url.createObjectURL(data)
+        this.player = new Audio(src + this.audioBook.audioFile.id)
+        this.player.setAttribute("preload", 'metadata')
+        this.player.volume = 0.5
+        this.setEventListener()
+      }
+    })
   }
 
   setEventListener(){

@@ -11,7 +11,7 @@
         <mat-card-subtitle><small>By <i>{{ audioBook.author }}</i></small></mat-card-subtitle>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-mini-fab color="primary">
+      <button mat-mini-fab color="primary" (click)="onClick(audioBook)">
         <mat-icon>play_arrow</mat-icon>
       </button>
     </mat-card-actions>

@@ -23,7 +23,7 @@ export class AddAudioComponent {
   imageName: string = '';
   fileSize!: number;
   category!: Category[]
-  audioBookExtension: string [] = ["mp3"]
+  audioBookExtension: string [] = ["mp3", "m4b"]
   imageExtension: string [] = ["png", "jpeg", "jpg", "avif"]
 
   constructor(private _audioBookService: AudioBookService,

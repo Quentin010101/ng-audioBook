@@ -18,4 +18,8 @@ export class FileService {
     console.log("test")
     return this.http.get(this.apiUrl + '/image/read/' + id, {responseType: 'blob'})
   }
+
+  public getAudio(id: number){
+    return this.http.get(this.apiUrl + '/audio/read/' + id, {responseType: 'blob'})
+  }
 }
