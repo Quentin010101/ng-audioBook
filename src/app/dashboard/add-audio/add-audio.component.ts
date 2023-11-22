@@ -28,8 +28,8 @@ export class AddAudioComponent {
 
   constructor(private _audioBookService: AudioBookService,
     private _fileService: FileService,
-    private _categoryService: CategoryService,
-    private _sharedAudioService: SharedAudioService){
+    private _sharedAudioService: SharedAudioService,
+    private _categoryService: CategoryService){
 
   }
 
@@ -73,7 +73,7 @@ export class AddAudioComponent {
         this._audioBookService.save(audioBook).subscribe({
           next: (book) => {
             
-            this._fileService.save(book.id, formData).subscribe({
+            this._fileService.save(audioBook.id, formData).subscribe({
               next: (data) => {
                 let message = new Message()
                 message.text  = 'The AudioBook ' + audioBook.title + ' has been uploaded!'

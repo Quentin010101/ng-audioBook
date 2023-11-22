@@ -7,7 +7,6 @@ import { Validation } from 'src/app/config/validationConfig';
 import { Message } from 'src/app/model/message/MessageModel';
 import { SignInRequest } from 'src/app/model/user/SignInRequest';
 import { User } from 'src/app/model/user/UserModel';
-import { AuthService } from 'src/app/service/auth.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({

@@ -3,7 +3,8 @@ import { AudioBook } from 'src/app/model/book/AudioBookModel';
 import { Category } from 'src/app/model/category/CategoryModel';
 import { AudioBookService } from 'src/app/service/audio-book.service';
 import { CategoryService } from 'src/app/service/category.service';
-import { SharedAudioService } from 'src/app/config/shared-audio.service';
+
+
 
 @Component({
   selector: 'app-library',
@@ -12,16 +13,16 @@ import { SharedAudioService } from 'src/app/config/shared-audio.service';
 })
 export class LibraryComponent {
   audioBooks!: AudioBook[]
-  category!: Category[]
+  categories!: Category[]
 
-  constructor(private _audioBookService: AudioBookService, private _categoryService : CategoryService){}
+  constructor(private _audioService: AudioBookService, private _categoryService: CategoryService){}
 
   ngOnInit(){
-    this._audioBookService.getAllAudioBook().subscribe({
+    this._audioService.getAllAudioBook().subscribe({
       next: (data) => this.audioBooks = data
     })
     this._categoryService.getAll().subscribe({
-      next: (data) => this.category = data
+      next: (data) => this.categories = data
     })
   }
 }

@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { SharedAudioService } from 'src/app/config/shared-audio.service';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { AudioBook } from 'src/app/model/book/AudioBookModel';
 import { FileService } from 'src/app/service/file.service';
 
@@ -12,7 +12,7 @@ export class CardBookComponent {
   @Input() audioBook!: AudioBook
   src!: string;
 
-  constructor( private _sharedAudioService: SharedAudioService, private _fileService: FileService){}
+  constructor(  private _fileService: FileService , private router: Router){}
   
   ngOnInit(){
     this._fileService.getImage(this.audioBook.imageFile.id).subscribe({
@@ -27,6 +27,6 @@ export class CardBookComponent {
   }
 
   onClick(audioBook: AudioBook){
-    this._sharedAudioService.emitChange(audioBook)
+    this.router.navigate(['dashboard/library/single'])
   }
 }

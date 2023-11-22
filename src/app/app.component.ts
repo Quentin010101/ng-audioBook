@@ -17,7 +17,7 @@ export class AppComponent {
     private overlayContainer: OverlayContainer,
     private _authService: AuthService,
     private _paramService: ParamService,
-    private _themeService: ThemeService
+    private _themeService: ThemeService,
     ){
       _themeService.isDarkMode.subscribe(mode => {
         this.isDarkMode = mode
