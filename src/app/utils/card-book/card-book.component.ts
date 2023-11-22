@@ -20,6 +20,9 @@ export class CardBookComponent {
       next: (data) => {
         let url = window.URL
         this.src = url.createObjectURL(data)
+      },
+      error: (data) =>{
+        this.src = "/assets/image/default_book.avif"
       }
     })
   }

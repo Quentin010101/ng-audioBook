@@ -1,5 +1,5 @@
 <mat-card>
-  <div class="img-bg" [ngStyle]="{'background-image': 'url(' + src + ')'}">
+  <div class="img-bg" [ngStyle]="{'background-image': src? 'url(' + src + ')': ''}">
     <div class="after bg-2"></div>
     <div class="img">
       <img *ngIf="src" mat-card-image [src]="src" >

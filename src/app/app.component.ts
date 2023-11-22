@@ -37,6 +37,7 @@ export class AppComponent {
   ngOnInit(){
     this.theme = this._themeService.baseTheme
     this.isDarkMode = this._themeService.baseMode
+    console.log(this.isDarkMode)
     if(this._authService.isLoggedIn()){
       this._paramService.getParam().subscribe({
         next: (param) => {
