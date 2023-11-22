@@ -59,7 +59,8 @@ import { CardComponent } from './utils/card/card.component';
 import { SideNavComponent } from './utils/side-nav/side-nav.component';
 import { CardBookComponent } from './utils/card-book/card-book.component';
 import { ButtonSubmitComponent } from './utils/button-submit/button-submit.component'; 
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LibrarySingleComponent } from './dashboard/library/library-single/library-single.component'; 
 function initializeApp() {
   
 }
@@ -101,6 +102,7 @@ function initializeApp() {
     SideNavComponent,
     CardBookComponent,
     ButtonSubmitComponent,
+    LibrarySingleComponent,
 
   ],
   imports: [

@@ -1,5 +1,7 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { AudioBook } from 'src/app/model/book/AudioBookModel';
+import { AuthService } from 'src/app/service/auth.service';
+import { FileService } from 'src/app/service/file.service';
 
 
 @Component({
@@ -22,8 +24,10 @@ export class AudioComponent {
   // conf
   forwardValue: number = 10
 
+  constructor(private _authService: AuthService){}
+
   ngOnInit(){
-    this.player = new Audio('http://localhost:8090/files/audio/read/' + this.audioBook.audioFile.id + "?Authorization=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJxQGdtYWlsLmNvbSIsImV4cCI6MTcwMDU4NjE3NiwiaWF0IjoxNzAwNTgzMTc2fQ.zcYtNyPd5HXqeHisXQBHXILlpVmALU-B7d4qRjAFJumzvow7nmYJPgSa77SpDqWc345m2R44bO8lDpyx_OcL-Q")
+    this.player = new Audio('http://localhost:8090/files/audio/read/' + this.audioBook.audioFile.id + "?Authorization=" + this._authService.getAuthorizationToken())
     this.player.setAttribute("preload", 'metadata')
     this.player.volume = 0.5
     this.setEventListener()

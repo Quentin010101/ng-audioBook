@@ -10,6 +10,7 @@ import { AddAudioComponent } from './dashboard/add-audio/add-audio.component';
 import { AdminGuard } from './guard/admin.guard';
 import { AddCategoryComponent } from './dashboard/add-category/add-category.component';
 import { UserComponent } from './dashboard/user/user.component';
+import { LibrarySingleComponent } from './dashboard/library/library-single/library-single.component';
 
 const routes: Routes = [
   { path:'', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -27,6 +28,11 @@ const routes: Routes = [
       path:'library',
       component: LibraryComponent,
       data: { icon: 'library_books', text: 'Library', admin:false  }
+    },
+    {
+      path:'library/single',
+      component: LibrarySingleComponent,
+      data: { icon: 'library_books', text: 'Library', admin:false, nav:false  }
     },
     {
       path:'addBook',

@@ -16,7 +16,7 @@
   <div class="list-container" [ngClass]="{'opened':open, 'closed':!open}">
     <mat-nav-list>
       <ng-container *ngFor="let item of routes">
-        <ng-container *ngIf="item.data">
+        <ng-container *ngIf="item.data && item.data['nav'] != false">
           <ng-container *ngIf="!item.data['admin']">
             <a mat-list-item [routerLinkActive]="'active bg-primary mat-elevation-z10'" routerLink="{{item.path}}">
                 <div class="part">
