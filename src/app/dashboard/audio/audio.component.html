@@ -1,13 +1,13 @@
 <div id="audio">
-  <ng-container *ngIf="isReady; else elseBlock">
+  <ng-container *ngIf="this.state.init; else elseBlock">
     <div class="wrapper">
       <div id="task">
-        <button #btn (click)="playBack()" class="btn" [disabled]="!isPlayable">
+        <button #btn (click)="playBack()" class="btn" [disabled]="!this.state.canPlay">
           <icon [size]="20"><icon-play-back></icon-play-back></icon>
         </button>
-        <button #btn (click)="playStop($event)" class="btn" [disabled]="!isPlayable">
+        <button #btn (click)="playStop()" class="btn" [disabled]="!this.state.canPlay">
           <icon [size]="20">
-            <ng-container *ngIf="isPlaying; else elseBlock">
+            <ng-container *ngIf="this.state.playing; else elseBlock">
               <icon-pause></icon-pause>
             </ng-container>
             <ng-template #elseBlock>
@@ -15,13 +15,13 @@
             </ng-template>
           </icon>
         </button>
-        <button (click)="playForward()" class="btn" [disabled]="!isPlayable">
+        <button (click)="playForward()" class="btn" [disabled]="!this.state.canPlay">
           <icon [size]="20"><icon-play-forward></icon-play-forward></icon>
         </button>
       </div>
-      <app-progress-bar [timePassed]="timePassed" [duration]="duration"
+      <app-progress-bar [timePassed]="this.state.currentTime" [duration]="this.state.duration"
         (timeEvent)="setNewCurrentTime($event)"></app-progress-bar>
-      <app-volume [isPlayable]="isPlayable" (rangeEvent)="setNewRange($event)"></app-volume>
+      <app-volume [isPlayable]="this.state.canPlay" (rangeEvent)="setNewRange($event)"></app-volume>
     </div>
   </ng-container>
   <ng-template #elseBlock>

@@ -1,8 +1,7 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { AudioBook } from 'src/app/model/book/AudioBookModel';
-import { AuthService } from 'src/app/service/auth.service';
-import { FileService } from 'src/app/service/file.service';
-
+import { State } from 'src/app/model/file/StateModel';
+import { AudioService } from 'src/app/service/audio.service';
 
 @Component({
   selector: 'app-audio',
@@ -10,94 +9,43 @@ import { FileService } from 'src/app/service/file.service';
   styleUrls: ['./audio.component.scss']
 })
 export class AudioComponent {
-  @Input() audioBook!: AudioBook;
-  @ViewChild("btn") buttonRef!: ElementRef
+  @Input() audioBook!: AudioBook
+  state: State = new State()
 
-  player!: HTMLMediaElement
-  progress!: HTMLElement
-  isPlaying: boolean = false
-  isReady: boolean = false
-  isPlayable: boolean = false
-  timePassed: number = 0
-  duration!: number 
 
-  // conf
-  forwardValue: number = 10
 
-  constructor(private _authService: AuthService){}
+
+  constructor(private _audioService: AudioService){
+    this._audioService.$stateSubject.subscribe({
+      next: (data) => this.handleState(data)
+    })
+  }
 
   ngOnInit(){
-    this.player = new Audio('http://localhost:8090/files/audio/read/' + this.audioBook.audioFile.id + "?Authorization=" + this._authService.getAuthorizationToken())
-    this.player.setAttribute("preload", 'metadata')
-    this.player.volume = 0.5
-    this.setEventListener()
+    this._audioService.$audio.next(this.audioBook)
   }
 
-  setEventListener(){
-    this.player.addEventListener('timeupdate', this.currentTimeUpdate.bind(this))
-    this.player.addEventListener('loadedmetadata', this.init.bind(this))
-    this.player.addEventListener('playing', this.playing.bind(this))
-    this.player.addEventListener('pause', this.paused.bind(this))
-    this.player.addEventListener('stop', this.stop.bind(this))
-    this.player.addEventListener('waiting', this.waiting.bind(this))
-    this.player.addEventListener('canplay', this.canplay.bind(this))
-  }
-  waiting(){
-    this.isPlayable= false
-  }
-  canplay(){
-    this.isPlayable = true
-  }
-  playing(){
-    this.isPlaying = true
-  }
-  paused(){
-    this.isPlaying = false
-  }
-  stop(){
-    this.isPlaying = false
+  handleState(state: State){
+    this.state = state
   }
 
-  init(){
-    this.isReady = true
-    this.duration = this.player.duration
-  }
-
-  playStop(e: Event){
-    this.isPlaying? this.player.pause() : this.player.play()
-  }
-
-  playForward(){
-    let timeForward = this.player.currentTime + this.forwardValue
-    let duration = this.player.duration
-
-    if(timeForward < duration){
-      this.player.currentTime = timeForward
+  playStop(){
+    if(this.state.playing){
+      this._audioService.paused()
     }else{
-      this.player.currentTime = duration
+      this._audioService.playing()
     }
   }
-
   playBack(){
-    let timeBack = this.player.currentTime - this.forwardValue
-
-    if(timeBack > 0){
-      this.player.currentTime = timeBack
-    }else{
-      this.player.currentTime = 0
-    }
+    this._audioService.fastBackward()
   }
-
-  currentTimeUpdate(){
-    this.timePassed = this.player.currentTime
+  playForward(){
+    this._audioService.fastForward()
   }
-
-  setNewCurrentTime(value: number){
-    console.log(value)
-    this.player.currentTime = Math.floor((this.duration*value)/100)
-    this.timePassed = (this.duration*value)/100
+  setNewCurrentTime(number: number){
+    this._audioService.setNewCurrentTime(number)
   }
-  setNewRange(value: number){
-    this.player.volume = value/100
+  setNewRange(number: number){
+    this._audioService.setNewVolume(number)
   }
 }

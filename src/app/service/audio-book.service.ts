@@ -17,6 +17,9 @@ export class AudioBookService {
   constructor(private http: HttpClient) { }
 
   public getAudioBook(id: number): Observable<AudioBook>{
+        for(let i = 0; i < this.books.length; i++){
+      if(this.books[i].id == id) return of(this.books[i])
+    }
     return this.http.get<AudioBook>(this.apiUrl + '/' + id);
   }
 

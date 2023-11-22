@@ -25,8 +25,10 @@ export class ProgressBarComponent implements AfterViewInit, OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes['timePassed'].currentValue != null && this.componentInit){
-      this.updateAvancementBar()
+    if(changes['timePassed']){
+      if(changes['timePassed'].currentValue != null && this.componentInit){
+        this.updateAvancementBar()
+      }
     }
   }
 

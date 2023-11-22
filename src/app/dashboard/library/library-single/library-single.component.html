@@ -1,3 +1,7 @@
 <app-page>
-    hello
+    <div *ngIf="audioBook">
+        <h2>{{ audioBook.title }}</h2>
+        <mat-divider></mat-divider>
+        <app-audio [audioBook]="audioBook"></app-audio>
+    </div>
 </app-page>

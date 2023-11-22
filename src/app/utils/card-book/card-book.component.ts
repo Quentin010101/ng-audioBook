@@ -27,6 +27,6 @@ export class CardBookComponent {
   }
 
   onClick(audioBook: AudioBook){
-    this.router.navigate(['dashboard/library/single'])
+    this.router.navigate(['dashboard/library/single', this.audioBook.id])
   }
 }

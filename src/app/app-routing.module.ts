@@ -30,7 +30,7 @@ const routes: Routes = [
       data: { icon: 'library_books', text: 'Library', admin:false  }
     },
     {
-      path:'library/single',
+      path:'library/single/:id',
       component: LibrarySingleComponent,
       data: { icon: 'library_books', text: 'Library', admin:false, nav:false  }
     },
