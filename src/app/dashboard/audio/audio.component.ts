@@ -12,9 +12,6 @@ export class AudioComponent {
   @Input() audioBook!: AudioBook
   state: State = new State()
 
-
-
-
   constructor(private _audioService: AudioService){
     this._audioService.$stateSubject.subscribe({
       next: (data) => this.handleState(data)

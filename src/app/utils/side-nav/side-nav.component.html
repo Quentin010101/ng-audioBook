@@ -1,6 +1,11 @@
 <div class="sideNav">
   <div class="nav mat-elevation-z8 bg-2">
-    <ng-content select="[nav]"></ng-content>
+    <div class="img-container">
+      <img src="/assets/image/library.jpg" alt="">
+    </div>
+    <div class="nav-content">
+      <ng-content select="[nav]"></ng-content>
+    </div>
   </div>
   <div class="content">
     <ng-content></ng-content>

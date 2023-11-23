@@ -1,1 +1,11 @@
-<input type="range" name="range" id="range" (change)="onChange($event)" [disabled]="!isPlayable">
+<div class="cont">
+    <div id="vol-icon">
+        <mat-icon *ngIf="volume == 0">volume_off</mat-icon>
+        <mat-icon *ngIf="volume > 0 && volume < 30">volume_mute</mat-icon>
+        <mat-icon *ngIf="volume >= 30 && volume <= 75">volume_down</mat-icon>
+        <mat-icon *ngIf="volume > 75">volume_up</mat-icon>
+    </div>
+    <mat-slider  color="accent" min="0" max="100">
+        <input matSliderThumb (change)="onChange($event)" [disabled]="!isPlayable" value="50">
+    </mat-slider>      
+</div>

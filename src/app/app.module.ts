@@ -61,6 +61,10 @@ import { CardBookComponent } from './utils/card-book/card-book.component';
 import { ButtonSubmitComponent } from './utils/button-submit/button-submit.component'; 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { LibrarySingleComponent } from './dashboard/library/library-single/library-single.component'; 
+import {MatSliderModule} from '@angular/material/slider'; 
+
+
+
 function initializeApp() {
   
 }
@@ -130,7 +134,8 @@ function initializeApp() {
     MatMenuModule,
     MatToolbarModule,
     MatListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSliderModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

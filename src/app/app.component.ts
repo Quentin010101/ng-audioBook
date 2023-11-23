@@ -3,6 +3,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { ThemeService } from './service/theme.service';
 import { AuthService } from './service/auth.service';
 import { ParamService } from './service/param.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,21 @@ import { ParamService } from './service/param.service';
 export class AppComponent {
   isDarkMode!: boolean
   theme!: string
+  currentScreenSize!: string;
+  displayNameMap = new Map([
+    [Breakpoints.XSmall, 'XSmall'],
+    [Breakpoints.Small, 'Small'],
+    [Breakpoints.Medium, 'Medium'],
+    [Breakpoints.Large, 'Large'],
+    [Breakpoints.XLarge, 'XLarge'],
+  ]);
 
   constructor(
     private overlayContainer: OverlayContainer,
     private _authService: AuthService,
     private _paramService: ParamService,
     private _themeService: ThemeService,
+    private responsive: BreakpointObserver
     ){
       _themeService.isDarkMode.subscribe(mode => {
         this.isDarkMode = mode
@@ -37,11 +47,9 @@ export class AppComponent {
   ngOnInit(){
     this.theme = this._themeService.baseTheme
     this.isDarkMode = this._themeService.baseMode
-    console.log(this.isDarkMode)
     if(this._authService.isLoggedIn()){
       this._paramService.getParam().subscribe({
         next: (param) => {
-          console.log(param)
             this._themeService.isDarkMode.next(param.darkTheme)
             this._themeService.theme.next(param.theme.className)
         }
@@ -50,6 +58,23 @@ export class AppComponent {
 
     this.setOverlayTheme(this.isDarkMode)
     this.overlayContainer.getContainerElement().classList.add(this.theme);
+
+    // responsive
+    this.responsive.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+      Breakpoints.Medium,
+      Breakpoints.Large,
+      Breakpoints.XLarge,
+    ] )
+    .subscribe(result => {
+      for (const query of Object.keys(result.breakpoints)) {
+        if (result.breakpoints[query]) {
+          this.currentScreenSize = this.displayNameMap.get(query) ?? 'Unknown';
+          console.log(this.currentScreenSize)
+        }
+      }
+    });
   }
 
   private setOverlayTheme(theme: boolean){

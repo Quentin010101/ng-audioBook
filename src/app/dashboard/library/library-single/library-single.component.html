@@ -1,7 +1,22 @@
 <app-page>
     <div *ngIf="audioBook">
-        <h2>{{ audioBook.title }}</h2>
-        <mat-divider></mat-divider>
-        <app-audio [audioBook]="audioBook"></app-audio>
+        <mat-card>
+            <div class="container">
+                <mat-card-content>
+                    <img *ngIf="src" mat-card-image [src]="src" >
+                </mat-card-content>
+                <div class="content">
+                    <mat-card-header>
+                        <mat-card-title>{{ audioBook.title }}</mat-card-title>
+                        <mat-card-subtitle>{{ audioBook.author }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <p>{{ audioBook.summary }}</p>
+                        <app-audio [audioBook]="audioBook"></app-audio>
+                    </mat-card-content>
+                </div>
+            </div>
+        </mat-card>
     </div>
 </app-page>

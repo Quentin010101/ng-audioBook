@@ -41,22 +41,29 @@ export class AudioService {
   }
   init(){
     this.state.init = true
-    this.state.duration = this.player.duration
+    if(this.player.duration === Infinity){
+      this.state.duration = 0
+    }else{
+      this.state.duration = this.player.duration
+    }
     this.$stateSubject.next(this.state)
   }
   playing(){
+    this.state.duration = this.player.duration
     this.state.playing = true
     this.state.paused = false
     this.player.play()
     this.updateChildComp()
   }
   paused(){
+    this.state.duration = this.player.duration
     this.state.playing = false
     this.state.paused = true
     this.player.pause()
     this.updateChildComp()
   }
   canplay(){
+    this.state.duration = this.player.duration
     this.state.canPlay = true
     this.updateChildComp()
   }

@@ -2,25 +2,22 @@
   <ng-container *ngIf="this.state.init; else elseBlock">
     <div class="wrapper">
       <div id="task">
-        <button #btn (click)="playBack()" class="btn" [disabled]="!this.state.canPlay">
-          <icon [size]="20"><icon-play-back></icon-play-back></icon>
+        <button mat-mini-fab  (click)="playBack()" class="btn bg-1" [disabled]="!this.state.canPlay">
+          <mat-icon>replay_10</mat-icon>
         </button>
-        <button #btn (click)="playStop()" class="btn" [disabled]="!this.state.canPlay">
-          <icon [size]="20">
+        <button mat-fab color="primary" (click)="playStop()" class="btn" [disabled]="!this.state.canPlay">
             <ng-container *ngIf="this.state.playing; else elseBlock">
-              <icon-pause></icon-pause>
+              <mat-icon>pause</mat-icon>
             </ng-container>
             <ng-template #elseBlock>
-              <icon-play></icon-play>
+              <mat-icon>play_arrow</mat-icon>
             </ng-template>
-          </icon>
         </button>
-        <button (click)="playForward()" class="btn" [disabled]="!this.state.canPlay">
-          <icon [size]="20"><icon-play-forward></icon-play-forward></icon>
+        <button mat-mini-fab  (click)="playForward()" class="btn bg-1" [disabled]="!this.state.canPlay">
+          <mat-icon>forward_10</mat-icon>
         </button>
       </div>
-      <app-progress-bar [timePassed]="this.state.currentTime" [duration]="this.state.duration"
-        (timeEvent)="setNewCurrentTime($event)"></app-progress-bar>
+      <app-progress-bar (timeEvent)="setNewCurrentTime($event)"></app-progress-bar>
       <app-volume [isPlayable]="this.state.canPlay" (rangeEvent)="setNewRange($event)"></app-volume>
     </div>
   </ng-container>

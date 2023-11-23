@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    width: 100%;
+    .content{
+        width: 100%;
+    }
+    p{
+        padding: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}

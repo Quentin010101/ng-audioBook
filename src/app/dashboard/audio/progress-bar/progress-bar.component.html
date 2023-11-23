@@ -1,7 +1,11 @@
 <div id="progress-container">
       <div #bar (click)="onClick($event)" id="progress_bar">
-        <div #avancement id="progress_avancement"></div>
+        <div class="bg-1">
+          <div #avancement id="progress_avancement" class="bg-primary"></div>
+        </div>
       </div>
-  <small></small>
-  <small></small>
+      <div class="small">
+        <small id="s1">{{ timePassedString }}</small>
+        <small id="s2">{{ durationString }}</small>
+      </div>
 </div>
