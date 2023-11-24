@@ -11,6 +11,7 @@ import { AdminGuard } from './guard/admin.guard';
 import { AddCategoryComponent } from './dashboard/add-category/add-category.component';
 import { UserComponent } from './dashboard/user/user.component';
 import { LibrarySingleComponent } from './dashboard/library/library-single/library-single.component';
+import { LibraryCategorySingleComponent } from './dashboard/library/library-category-single/library-category-single.component';
 
 const routes: Routes = [
   { path:'', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -28,6 +29,11 @@ const routes: Routes = [
       path:'library',
       component: LibraryComponent,
       data: { icon: 'library_books', text: 'Library', admin:false  }
+    },
+    {
+      path:'library/category/:category',
+      component: LibraryCategorySingleComponent,
+      data: { icon: 'library_books', admin:false, nav:false  }
     },
     {
       path:'library/single/:id',

@@ -1,0 +1,5 @@
+<div class="color-primary">
+    <span><a [routerLink]="'/dashboard/library'">Library</a></span>
+    <span *ngIf="category"> / <a [routerLink]="'/dashboard/library/category/' + category">{{ category }}</a></span>
+    <span *ngIf="bookName"> / <a [routerLink]="">{{ bookName }}</a></span>
+</div>

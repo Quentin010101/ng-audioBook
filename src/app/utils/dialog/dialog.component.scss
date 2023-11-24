@@ -1,0 +1,11 @@
+button{
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+mat-list-item{
+    &:hover{
+        background-color: rgba(0,0,0,0.2);
+    }
+}

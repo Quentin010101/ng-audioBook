@@ -41,29 +41,25 @@ export class AudioService {
   }
   init(){
     this.state.init = true
-    if(this.player.duration === Infinity){
-      this.state.duration = 0
-    }else{
-      this.state.duration = this.player.duration
-    }
+    this.setDuration()
     this.$stateSubject.next(this.state)
   }
   playing(){
-    this.state.duration = this.player.duration
+    this.setDuration()
     this.state.playing = true
     this.state.paused = false
     this.player.play()
     this.updateChildComp()
   }
   paused(){
-    this.state.duration = this.player.duration
+    this.setDuration()
     this.state.playing = false
     this.state.paused = true
     this.player.pause()
     this.updateChildComp()
   }
   canplay(){
-    this.state.duration = this.player.duration
+    this.setDuration()
     this.state.canPlay = true
     this.updateChildComp()
   }
@@ -99,5 +95,11 @@ export class AudioService {
   setTimeFormat(number: number): number {
     return Math.floor(number*1000)/1000
   }
-
+  setDuration(){
+    if(this.player.duration === Infinity){
+      this.state.duration = 0
+    }else{
+      this.state.duration = this.player.duration
+    }
+  }
 }

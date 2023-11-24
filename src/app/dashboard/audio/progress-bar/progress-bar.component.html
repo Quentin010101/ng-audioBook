@@ -5,7 +5,7 @@
         </div>
       </div>
       <div class="small">
-        <small id="s1">{{ timePassedString }}</small>
-        <small id="s2">{{ durationString }}</small>
+        <small id="s1" *ngIf="timePassedString">{{ timePassedString }}</small>
+        <small id="s2" *ngIf="durationString">{{ durationString }}</small>
       </div>
 </div>

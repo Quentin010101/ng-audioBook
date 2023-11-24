@@ -139,4 +139,11 @@ export class AddAudioComponent {
   audioBookTootip(): string{
     return this.audioBookExtension.join(", ")
   }
+
+  searchQuery(audio: AudioBook){
+    this.form.controls['title'].setValue(audio.title) 
+    this.form.controls['author'].setValue(audio.author) 
+    this.form.controls['summary'].setValue(audio.summary) 
+    this.form.controls['category'].setValue(audio.category) 
+  }
 }

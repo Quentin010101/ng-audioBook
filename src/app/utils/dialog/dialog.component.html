@@ -1,0 +1,12 @@
+
+<div>
+
+    <mat-list>
+        <mat-list-item *ngFor="let item of search.items; let i = index">
+            <button [mat-dialog-close]="i">
+                <span matListItemTitle>{{ item.volumeInfo.authors? item.volumeInfo.authors[0] : '' }}</span>
+                <span matListItemLine>{{ item.volumeInfo.title }}</span>
+            </button>
+        </mat-list-item>
+    </mat-list>
+</div>

@@ -5,8 +5,78 @@
         width: 100%;
     }
     p{
-        padding: 2rem;
         max-width: 800px;
         margin: 0 auto;
     }
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .right-panel{
+        display: flex;
+    }
 }
+.xsm{
+    .container{
+        flex-direction: column;
+    }
+    p{
+        padding: 0.2rem;
+    }
+    .img-cont{
+        width: 100px;
+    }
+    .right-panel{
+        flex-direction: column-reverse;
+    }
+}
+.sm{
+    .container{
+        flex-direction: column;
+    }
+    p{
+        padding: 0.5rem 0.2rem;
+    }
+    .img-cont{
+        width: 200px;
+    }
+    .right-panel{
+        flex-direction: column-reverse;
+    }
+}
+.md{
+    p{
+        padding: 1rem;
+    }
+    .img-cont{
+        width: 250px;
+    }
+    .right-panel{
+        flex-direction: column;
+    }
+}
+.lg{
+    p{
+        padding: 1rem;
+    }
+    .img-cont{
+        width: 300px;
+    }
+    .right-panel{
+        flex-direction: column;
+    }
+}
+.xlg{
+    p{
+        padding: 2rem;
+    }
+    .img-cont{
+        width: 400px;
+    }
+    .right-panel{
+        flex-direction: column;
+    }
+}
+
+

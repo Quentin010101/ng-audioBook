@@ -1,9 +1,13 @@
 <app-page>
-    <div *ngIf="audioBook">
+    <span h3>Book</span>
+    <div *ngIf="audioBook" [class]="screenSize">
+        <app-breadcrumbs [category]="audioBook.category.name" [bookName]="audioBook.title"></app-breadcrumbs>
         <mat-card>
             <div class="container">
                 <mat-card-content>
-                    <img *ngIf="src" mat-card-image [src]="src" >
+                    <div class="img-cont">
+                        <img *ngIf="src" mat-card-image [src]="src" >
+                    </div>
                 </mat-card-content>
                 <div class="content">
                     <mat-card-header>
@@ -12,8 +16,10 @@
                     </mat-card-header>
                     <mat-divider></mat-divider>
                     <mat-card-content>
-                        <p>{{ audioBook.summary }}</p>
-                        <app-audio [audioBook]="audioBook"></app-audio>
+                        <div class="right-panel">
+                            <p>{{ audioBook.summary }}</p>
+                            <app-audio [audioBook]="audioBook" ></app-audio>
+                        </div>
                     </mat-card-content>
                 </div>
             </div>

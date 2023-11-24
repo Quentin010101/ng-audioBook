@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AudioBook } from '../model/book/AudioBookModel';
 import { environment } from 'src/environment';
-import { Observable, of, tap } from 'rxjs';
+import { Observable, Subject, of, tap } from 'rxjs';
 
 
 @Injectable({

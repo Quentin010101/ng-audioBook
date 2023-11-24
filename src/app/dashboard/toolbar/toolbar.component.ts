@@ -24,6 +24,17 @@ export class ToolbarComponent {
           this.themes = themes
         }
       })
+      _utilsService.screenSizeSubject.subscribe({
+        next: (data) => {
+          if(data == 'md' || data == 'sm' || data =='xsm'){
+            this.open = false
+            this._utilsService.openBehavior.next(this.open)
+          }else{
+            this.open = true
+            this._utilsService.openBehavior.next(this.open)
+          }
+        }
+      })
     }
 
     onClick(theme: Theme){

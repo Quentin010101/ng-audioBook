@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
+import { UtilsServiceService } from 'src/app/config/utils-service.service';
 import { AudioBook } from 'src/app/model/book/AudioBookModel';
 import { AudioBookService } from 'src/app/service/audio-book.service';
 import { FileService } from 'src/app/service/file.service';
@@ -12,8 +13,15 @@ import { FileService } from 'src/app/service/file.service';
 export class LibrarySingleComponent {
   audioBook!: AudioBook | null
   src!: string | null
+  screenSize!: string
 
-  constructor(private route: ActivatedRoute, private _audioService: AudioBookService,private _fileService: FileService){}
+  constructor(private route: ActivatedRoute, private _audioService: AudioBookService,private _fileService: FileService, private _utilsService: UtilsServiceService){
+    this._utilsService.screenSizeSubject.subscribe({
+      next: (data) => {
+        this.screenSize = data
+      }
+    })
+  }
 
   ngOnInit(){
     let audioId = this.route.snapshot.paramMap.get('id') as string

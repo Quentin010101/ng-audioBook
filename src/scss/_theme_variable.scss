@@ -2,11 +2,11 @@
 @import "/src/scss/theme_function";
 
 $accent:  mat.define-palette(mat.$blue-grey-palette);
-$primary-1: mat.define-palette(mat.$pink-palette, A400, A100, A700);
-$primary-2: mat.define-palette(mat.$green-palette, A400, A100, A700);
-$primary-3: mat.define-palette(mat.$orange-palette, A400, A100, A700);
-$primary-4: mat.define-palette(mat.$cyan-palette, A400, A100, A700);
-$primary-5: mat.define-palette(mat.$indigo-palette, A400, A100, A700);
+$primary-1: mat.define-palette(mat.$pink-palette);
+$primary-2: mat.define-palette(mat.$green-palette);
+$primary-3: mat.define-palette(mat.$orange-palette);
+$primary-4: mat.define-palette(mat.$cyan-palette);
+$primary-5: mat.define-palette(mat.$indigo-palette);
 
 
 $light-theme-1: define-light-theme($primary-1, $accent);

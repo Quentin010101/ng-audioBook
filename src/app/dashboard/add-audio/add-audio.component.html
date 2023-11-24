@@ -87,8 +87,6 @@
       </form>
     </div>
   </div>
-  <!-- <div class="center submit" >
-    <button color="primary" mat-raised-button (click)="onSubmit()" [disabled]="formFile.invalid || form.invalid">Submit</button>
-  </div> -->
   <app-button-submit [form]="formFinal" (ev)="onSubmit()"></app-button-submit>
+  <app-api (audioEmiter)="searchQuery($event)"></app-api>
 </app-page>

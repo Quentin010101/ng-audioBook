@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { AudioBook } from 'src/app/model/book/AudioBookModel';
 import { Category } from 'src/app/model/category/CategoryModel';
 
@@ -12,9 +13,15 @@ export class LibraryCategoryComponent {
   @Input() audioBooks!: AudioBook[]
   audioBooksCategory!: AudioBook[]
 
+  constructor(private router: Router){}
+
   ngOnInit(){
     this.audioBooksCategory = this.audioBooks.filter((book)=> {
       return book.category.id == this.category.id
     })
+  }
+
+  navigate(){
+    this.router.navigate(['dashboard/library/category', this.category.name])
   }
 }

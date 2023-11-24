@@ -4,6 +4,7 @@ import { ThemeService } from './service/theme.service';
 import { AuthService } from './service/auth.service';
 import { ParamService } from './service/param.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { UtilsServiceService } from './config/utils-service.service';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +15,13 @@ export class AppComponent {
   isDarkMode!: boolean
   theme!: string
   currentScreenSize!: string;
+
   displayNameMap = new Map([
-    [Breakpoints.XSmall, 'XSmall'],
-    [Breakpoints.Small, 'Small'],
-    [Breakpoints.Medium, 'Medium'],
-    [Breakpoints.Large, 'Large'],
-    [Breakpoints.XLarge, 'XLarge'],
+    [Breakpoints.XSmall, 'xsm'],
+    [Breakpoints.Small, 'sm'],
+    [Breakpoints.Medium, 'md'],
+    [Breakpoints.Large, 'lg'],
+    [Breakpoints.XLarge, 'xlg'],
   ]);
 
   constructor(
@@ -27,6 +29,7 @@ export class AppComponent {
     private _authService: AuthService,
     private _paramService: ParamService,
     private _themeService: ThemeService,
+    private _utilsService: UtilsServiceService,
     private responsive: BreakpointObserver
     ){
       _themeService.isDarkMode.subscribe(mode => {
@@ -71,7 +74,8 @@ export class AppComponent {
       for (const query of Object.keys(result.breakpoints)) {
         if (result.breakpoints[query]) {
           this.currentScreenSize = this.displayNameMap.get(query) ?? 'Unknown';
-          console.log(this.currentScreenSize)
+            this._utilsService.screenSizeSubject.next(this.currentScreenSize)
+            console.log("eeee")
         }
       }
     });

@@ -1,0 +1,11 @@
+<app-page *ngIf="exist">
+    <span h3>{{ category }}</span>
+    <app-breadcrumbs [category]="category"></app-breadcrumbs>
+    <div class="cont">
+        <ng-container *ngIf="audioBooksCat">
+            <ng-container *ngFor="let audioBook of audioBooksCat">
+                <app-card-book [audioBook]="audioBook"></app-card-book>
+            </ng-container>
+        </ng-container>
+    </div>
+</app-page>
